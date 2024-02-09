@@ -1,9 +1,9 @@
 module.exports = {
   TOKEN: "",
-  ownerID: ["1004206704994566164", ""],
+  ownerID: ["1126336222206365696", ""],
   botInvite: "",
   supportServer: "",
-  mongodbURL: "mongodb+srv://Carl:samo1003@clownsbot.8nqmclk.mongodb.net/?retryWrites=true&w=majority",
+  mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
   status: 'RTXX GG',
   commandsDir: './commands',
   language: "en",
