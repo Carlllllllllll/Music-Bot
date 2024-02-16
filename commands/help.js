@@ -1,18 +1,3 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
@@ -52,7 +37,7 @@ module.exports = {
           { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
           { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
         ) 
-        .setImage('https://tenor.com/view/nice-hamatora-anime-anime-boy-music-gif-14625260')
+        .setImage('https://cdn.discordapp.com/attachments/1150827819547504741/1168917372267151370/standard.gif?ex=65538222&is=65410d22&hm=b4994392f44679da41fc9304eb69deaa3769e136057556deec0db69ae8d33a97&')
 
       // Send both sets of commands in separate embeds
       interaction.reply({ embeds: [musicCommandsEmbed, basicCommandsEmbed] });
@@ -61,18 +46,3 @@ module.exports = {
     }
   },
 };
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
