@@ -13,11 +13,7 @@
    ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
    ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
 */
-const { ApplicationCommandOptionType } = require('discord.js');
-const db = require("../mongoDB");
-
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { ButtonStyle } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "help",
@@ -53,38 +49,18 @@ module.exports = {
           { name: '🗑️ Clear', value: 'Clear the song queue of this server' },
           { name: '⏱️ Time', value: 'Display the current song playback time' },
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
-           { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
+          { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
           { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
         ) 
-       .setImage('https://cdn.discordapp.com/attachments/1150827819547504741/1168917372267151370/standard.gif?ex=65538222&is=65410d22&hm=b4994392f44679da41fc9304eb69deaa3769e136057556deec0db69ae8d33a97&')
-      const button1 = new ButtonBuilder()
-        .setLabel('YouTube')
-        .setURL('https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A')
-        .setStyle(ButtonStyle.Link);
+        .setImage('https://tenor.com/view/nice-hamatora-anime-anime-boy-music-gif-14625260')
 
-      const button2 = new ButtonBuilder()
-        .setLabel('Discord')
-        .setURL('https://discord.gg/FUEHs7RCqz')
-        .setStyle(ButtonStyle.Link);
-
-      const button3 = new ButtonBuilder()
-        .setLabel('Code')
-        .setURL('https://replit.com/@BEASTGAMERS1?tab=community')
-        .setStyle(ButtonStyle.Link);
-
-      const row = new ActionRowBuilder()
-        .addComponents(button1, button2, button3);
-
-      interaction.reply({
-        embeds: [musicCommandsEmbed, basicCommandsEmbed],
-        components: [row]
-      }).catch(e => {});
-    } catch (e) {
-      console.error(e);
+      // Send both sets of commands in separate embeds
+      interaction.reply({ embeds: [musicCommandsEmbed, basicCommandsEmbed] });
+    } catch (error) {
+      console.error('Error in the help command:', error);
     }
   },
 };
-
 /*
 
   ██████╗░████████╗██╗░░██╗           
