@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "help",
@@ -8,7 +8,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const musicCommandsEmbed = new MessageEmbed()
+      const musicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
         .setTitle('🎸 **Music Commands**')
         .addFields(
@@ -27,7 +27,7 @@ module.exports = {
         )
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`);
 
-      const basicCommandsEmbed = new MessageEmbed()
+      const basicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
         .setTitle('✨ **Basic Commands**')
         .addFields(
@@ -44,3 +44,4 @@ module.exports = {
     }
   },
 };
+
