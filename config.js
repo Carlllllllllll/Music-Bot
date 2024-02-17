@@ -4,7 +4,7 @@ module.exports = {
   botInvite: "",
   supportServer: "",
   mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
-  status: 'RTXX GG',
+  status: 'Carl GG',
   commandsDir: './commands',
   language: "en",
   embedColor: "00fbff",
@@ -38,16 +38,16 @@ module.exports = {
     },
 
     voiceConfig: {
-      leaveOnFinish: false,
-      leaveOnStop: false,
+      leaveOnFinish: true,
+      leaveOnStop: true,
       leaveOnEmpty: {
-        status: true,
-        cooldown: 10000000,
+        status: false,
+        cooldown: 1000000000000000000000000,
       },
 
     },
 
-    maxVol: 150,
+    maxVol: 200,
 
   }
 }
