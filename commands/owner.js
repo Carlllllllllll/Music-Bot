@@ -33,14 +33,16 @@ module.exports = {
           name: 'Bot Owner',
         })
         .setDescription(`__**About me**__:\n\n ▶️ I'm Carl, a Discord bot developer and web developer. I enjoy playing games, watching anime, and building various web server applications. For faster replies, contact me on Discord!\n Discord Server: [Join Here](${discordServerLink})\n Discord Profile: [My Discord Profile](${discordProfileLink})`)
-        .setTimestamp();
-
+        .setTimestamp()
+        .setImage('https://media1.tenor.com/m/7GyHsInT8uoAAAAC/naruto.gif');
+        
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
       console.error(e);
     }
   },
 };
+
 
 /*
 
