@@ -36,7 +36,7 @@ module.exports = {
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
           { name: '🎵 Now Playing', value: 'Display the currently playing song' }
         )
-        .setImage(`https://tenor.com/view/naruto-pain-gif-21499623`);
+        .setImage(`https://media1.tenor.com/m/ZDOGDzRbv08AAAAd/naruto-pain.gif`);
 
       // Send both sets of commands in separate embeds
       interaction.reply({ embeds: [musicCommandsEmbed, basicCommandsEmbed] });
