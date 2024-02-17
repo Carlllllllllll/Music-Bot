@@ -30,7 +30,7 @@ await queue?.pause()
 } catch(e){
 return 
 }
-await queue?.textChannel?.send({ content: `🔴 Muted` }).catch(e => { })
+await queue?.textChannel?.send({ content: `🔴 I am Muted` }).catch(e => { })
 }
 }
 if(oldState.serverMute === true && newState.serverMute === false){
