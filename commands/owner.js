@@ -28,7 +28,7 @@ module.exports = {
       const discordProfileLink = 'https://discordapp.com/users/1126336222206365696';
 
       const embed = new EmbedBuilder()
-        .setColor('#da2a41')
+        .setColor('#00ff00')
         .setAuthor({
           name: 'Bot Owner',
         })
