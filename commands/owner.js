@@ -24,7 +24,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const discordServerLink = 'https://discord.gg/FUEHs7RCqz';
+      const discordServerLink = 'https://discord.gg/SZys86VkMQ';
       const discordProfileLink = 'https://discordapp.com/users/1126336222206365696';
 
       const embed = new EmbedBuilder()
@@ -32,7 +32,7 @@ module.exports = {
         .setAuthor({
           name: 'Bot Owner',
         })
-        .setDescription(`__**About me**__:\n\n ▶️ I'm Carl, a Discord bot developer and web developer. I enjoy playing games, watching anime, and building various web server applications. For faster replies, contact me on Discord!\n Discord Server: [Join Here](${discordServerLink})\n Discord Profile: [I Can Help You Here](${discordProfileLink})`)
+        .setDescription(`__**About me**__:\n\n ▶️ I'm Carl, a Discord bot developer and web developer. I enjoy playing games, watching anime, and building various web server applications. For faster replies, contact me on Discord!\n Discord Server: [Join Here](${discordServerLink})\n Discord Profile: [My Discord Profile](${discordProfileLink})`)
         .setTimestamp();
 
       interaction.reply({ embeds: [embed] }).catch(() => {});
