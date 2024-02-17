@@ -9,7 +9,6 @@ module.exports = {
   run: async (client, interaction) => {
     try {
       const embedHeight = 400; // Set the desired height for the images
-      const gifUrl = 'https://www.bing.com/ck/a?!&&p=82f9dc9d72783565JmltdHM9MTcwODEyODAwMCZpZ3U9TmV3JnNvdXJjZT01NTA3NA&ptn=3&ver=2&hsh=3&fclid=0c78d574-2ba3-6f7e-084a-c1682a7e6eb3&u=a1L2ltYWdlcy9zZWFyY2g_cT1wYWluIGdpZiBuYXJ1dG8mRk9STT1JUUZSQkEmaWQ9QjI4NDFGQzEyMUYxODQ2MjJGMDFFMzQxN0MxQTk3RTVFNjg4OEEwMw&ntb=1';
 
       const musicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
@@ -28,6 +27,7 @@ module.exports = {
           { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
           { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Helping. For more info type /help in any channel' }
         )
+        .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`)
         .setHeight(embedHeight); // Set the height for the image
 
       const basicCommandsEmbed = new EmbedBuilder()
@@ -39,15 +39,14 @@ module.exports = {
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
           { name: '🎵 Now Playing', value: 'Display the currently playing song' }
         )
+        .setImage(`https://tenor.com/view/naruto-pain-gif-21499623`)
         .setHeight(embedHeight); // Set the height for the image
 
-      // Send both sets of commands in separate embeds along with the gif directly in the message content
-      interaction.reply({
-        embeds: [musicCommandsEmbed, basicCommandsEmbed],
-        content: `Here's a cool gif: ${gifUrl}`,
-      });
+      // Send both sets of commands in separate embeds
+      interaction.reply({ embeds: [musicCommandsEmbed, basicCommandsEmbed] });
     } catch (error) {
       console.error('Error in the help command:', error);
     }
   },
 };
+
