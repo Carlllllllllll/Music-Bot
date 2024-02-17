@@ -1,14 +1,14 @@
-const { EmbedBuilder } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: "help",
-  description: "Get information about bot and commands.",
+  description: "Get information about the bot and commands.",
   permissions: "0x0000000000000800",
   options: [],
 
   run: async (client, interaction) => {
     try {
-      const musicCommandsEmbed = new EmbedBuilder()
+      const musicCommandsEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
         .setTitle('🎸 **Music Commands**')
         .addFields(
@@ -23,11 +23,11 @@ module.exports = {
           { name: '⏩ Seek', value: 'Seek to a specific time in the current song' },
           { name: '⏮️ Previous', value: 'Play the previous song in the queue' },
           { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
-          { name: '👑 About Owner', 'Owner name is Carl 24/7 Helping for more info type /help in any channel' }
+          { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Help. For more info, type /help in any channel' } // Fixed field value
         )
-        .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177&`); 
+        .setImage('https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177');
 
-      const basicCommandsEmbed = new EmbedBuilder()
+      const basicCommandsEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
         .setTitle('✨ **Basic Commands**')
         .addFields(
@@ -46,3 +46,4 @@ module.exports = {
     }
   },
 };
+
