@@ -23,20 +23,18 @@ module.exports = {
           { name: '⏩ Seek', value: 'Seek to a specific time in the current song' },
           { name: '⏮️ Previous', value: 'Play the previous song in the queue' },
           { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
-          { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Help. For more info, type /help in any channel' } // Fixed field value
+          { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Helping. For more info type /help in any channel' }
         )
-        .setImage('https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177');
+        .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`);
 
       const basicCommandsEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
         .setTitle('✨ **Basic Commands**')
         .addFields(
-          { name: '🏓 Ping', value: "Check the bot's latency" },
           { name: '🗑️ Clear', value: 'Clear the song queue of this server' },
           { name: '⏱️ Time', value: 'Display the current song playback time' },
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
-          { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
-          { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
+          { name: '🎵 Now Playing', value: 'Display the currently playing song' }
         );
 
       // Send both sets of commands in separate embeds
@@ -46,4 +44,3 @@ module.exports = {
     }
   },
 };
-
