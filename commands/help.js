@@ -8,8 +8,6 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const embedHeight = 400; // Set the desired height for the images
-
       const musicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
         .setTitle('🎸 **Music Commands**')
@@ -27,8 +25,7 @@ module.exports = {
           { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
           { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Helping. For more info type /help in any channel' }
         )
-        .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`)
-        .setHeight(embedHeight); // Set the height for the image
+        .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`);
 
       const basicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
@@ -39,8 +36,7 @@ module.exports = {
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
           { name: '🎵 Now Playing', value: 'Display the currently playing song' }
         )
-        .setImage(`https://tenor.com/view/naruto-pain-gif-21499623`)
-        .setHeight(embedHeight); // Set the height for the image
+        .setImage(`https://tenor.com/view/naruto-pain-gif-21499623`);
 
       // Send both sets of commands in separate embeds
       interaction.reply({ embeds: [musicCommandsEmbed, basicCommandsEmbed] });
@@ -49,4 +45,3 @@ module.exports = {
     }
   },
 };
-
