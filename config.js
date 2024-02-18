@@ -13,7 +13,7 @@ module.exports = {
 
   sponsor: {
     status: true,
-    url: "https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A",
+    url: "https://discordapp.com/users/1126336222206365696",
   },
 
   voteManager: {
@@ -39,7 +39,7 @@ module.exports = {
 
     voiceConfig: {
       leaveOnFinish: false,
-      leaveOnStop: false,
+      leaveOnStop: true,
       leaveOnEmpty: {
         status: false,
         cooldown: 1000000000000000000000000,
