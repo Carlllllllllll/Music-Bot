@@ -23,7 +23,7 @@ module.exports = {
           { name: '⏩ Seek', value: 'Seek to a specific time in the current song' },
           { name: '⏮️ Previous', value: 'Play the previous song in the queue' },
           { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' },
-          { name: '👑 About Owner', value: 'Owner name is Carl. 24/7 Helping. For more info type /owner in any channel' }
+          { name: '👑 About Owner', value: 'Hello, I am Carl. I am here to help 24/7. If there are any bugs or if you have any questions, do not hesitate to DM me. For more information about me, type /owner in any channel. 😊' }
         )
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`);
 
