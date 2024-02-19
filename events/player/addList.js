@@ -8,11 +8,13 @@ module.exports = async (client, queue, playlist) => {
             .addField(`${playlist.user.id}`, `\`${playlist.name} (${playlist.songs.length} ❌)\` ❌❌`)
             .setImage("https://media1.tenor.com/m/B7_W48WYpuoAAAAC/10.gif");
 
-        await queue.textChannel.send({ embeds: [embed] });
+        const sentMessage = await queue.textChannel.send({ embeds: [embed] });
+        console.log("Message Sent:", sentMessage.content); // Log the content of the sent message
     } catch (error) {
-        console.error(error);
+        console.error("Error:", error);
     }
 };
+
 
 /*
 
