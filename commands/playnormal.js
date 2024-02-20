@@ -18,19 +18,7 @@ module.exports = {
         }
       ]
     },
-    {
-      name: "playlist",
-      description: "Write your playlist name.",
-      type: ApplicationCommandOptionType.Subcommand,
-      options: [
-        {
-          name: "name",
-          description: "Write the name of the playlist you want to create.",
-          type: ApplicationCommandOptionType.String,
-          required: true
-        }
-      ]
-    },
+
   ],
   voiceChannel: true,
   run: async (client, interaction) => {
