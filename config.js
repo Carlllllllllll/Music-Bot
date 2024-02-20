@@ -28,8 +28,8 @@ module.exports = {
   },
 
   playlistSettings: {
-    maxPlaylist: 10,
-    maxMusic: 75,
+    maxPlaylist: 15,
+    maxMusic: 300,
   },
 
   opt: {
@@ -41,8 +41,8 @@ module.exports = {
       leaveOnFinish: false,
       leaveOnStop: true,
       leaveOnEmpty: {
-        status: false,
-        cooldown: 1000000000000000000000000,
+        status: true,
+        cooldown: 100000000,
       },
 
     },
