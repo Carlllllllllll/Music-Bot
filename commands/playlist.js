@@ -5,32 +5,40 @@ name: "playlist",
 description: "Lets you manage playlist commands.",
 options: [
 {
-name: "create",
-description: "Create a playlist.",
-type: ApplicationCommandOptionType.Subcommand,
-options: [
-  {
-    name: "name",
-    description: "Give a name for your playlist",
-    type: ApplicationCommandOptionType.String,
-    required: true
-  }
-],
-run: async (client, interaction) => {
-  try {
-    let stp = interaction.options.getSubcommand();
+{
+  name: "create",
+  description: "Create a playlist.",
+  type: ApplicationCommandOptionType.Subcommand,
+  options: [
+    {
+      name: "name",
+      description: "Give a name for your playlist",
+      type: ApplicationCommandOptionType.String,
+      required: true,
+    },
+    {
+      name: "public",
+      description: "Set the playlist as public",
+      type: ApplicationCommandOptionType.Boolean,
+      required: false, // set it to true if you want to make it required
+    },
+  ],
+  run: async (client, interaction) => {
+    try {
+      let stp = interaction.options.getSubcommand();
 
-    if (stp === "create") {
-      let name = interaction.options.getString('name');
-      let public = false; // Set public to false by default
-      // ... rest of your code
+      if (stp === "create") {
+        let name = interaction.options.getString('name');
+        let public = interaction.options.getBoolean('public') || false; // Set public to false by default if not provided
+        // ... rest of your code
+      }
+
+      // ... rest of your run function
+    } catch (e) {
+      console.error(e);
     }
-
-    // ... rest of your run function
-  } catch (e) {
-    console.error(e);
   }
-}
+},
 
 },
 {
