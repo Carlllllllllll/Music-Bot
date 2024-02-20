@@ -5,41 +5,23 @@ name: "playlist",
 description: "Lets you manage playlist commands.",
 options: [
 {
+name: "create",
+description: "Create a playlist.",
+type: ApplicationCommandOptionType.Subcommand,
+options: [
 {
-  name: "create",
-  description: "Create a playlist.",
-  type: ApplicationCommandOptionType.Subcommand,
-  options: [
-    {
-      name: "name",
-      description: "Give a name for your playlist",
-      type: ApplicationCommandOptionType.String,
-      required: true,
-    },
-    {
-      name: "public",
-      description: "Set the playlist as public",
-      type: ApplicationCommandOptionType.Boolean,
-      required: false, // set it to true if you want to make it required
-    },
-  ],
-  run: async (client, interaction) => {
-    try {
-      let stp = interaction.options.getSubcommand();
-
-      if (stp === "create") {
-        let name = interaction.options.getString('name');
-        let public = interaction.options.getBoolean('public') || false; // Set public to false by default if not provided
-        // ... rest of your code
-      }
-
-      // ... rest of your run function
-    } catch (e) {
-      console.error(e);
-    }
-  }
+name: "name",
+description: "Give a name for you playlist",
+type: ApplicationCommandOptionType.String,
+required: true
 },
-
+{
+name: "public",
+description: "Want to make it Public ? True 0r false",
+type: ApplicationCommandOptionType.Boolean,
+required: true
+}
+]
 },
 {
 name: "delete",
@@ -142,7 +124,7 @@ return interaction.reply({ content: '⚠️ Album already Exitst!', ephemeral: t
 
 if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Exceeded Album limit', ephemeral: true }).catch(e => { })
 
-await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Creating Album!` }).catch(e => { })
+await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Album has been successfully created }).catch(e => { })
 
 await db.playlist.updateOne({ userID: interaction.user.id }, {
 $push: {
@@ -157,7 +139,7 @@ createdTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Sucessfully` }).catch(e => { })
+await interaction.editReply({ content: `<@${interaction.member.id}>, `✅ Album Created Sucessfully` }).catch(e => { })
 }
 
 if (stp === "delete") {
