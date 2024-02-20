@@ -306,7 +306,7 @@ const current = trackl.slice(start, start + kaçtane)
 if (!current || !current?.length > 0) return interaction.reply({ content: '❌ Your album is Empty, add any songs to it!', ephemeral: true }).catch(e => { })
 return new EmbedBuilder()
 .setTitle(`${name}`)
-.setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+.setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
 .setColor(client.config.embedColor) 
 .setDescription(`Use the **/play playlist <list-name>** command to play.\nType **/playlist list <list-name>** to see the songs\n${current.map(data =>
 `\n\`${sayı++}\` | [${data.music_name}](${data.music_url}) - <t:${Math.floor(data.saveTime / 1000) }:R>`
@@ -381,10 +381,10 @@ new ButtonBuilder()
 
 const embed = new EmbedBuilder()
 .setTitle(`${name}`)
-.setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+.setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
 .setColor(client.config.embedColor)
 .setDescription('Timeout Use command again!'.replace("{name}", name))
-.setFooter({ text: 'RTX GAMING' })
+.setFooter({ text: 'More info - Use /help command │ Made By 𝑪𝒂𝒓𝒍 ⚡' })
 return interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { })
 
 })
@@ -403,7 +403,7 @@ const embed = new EmbedBuilder()
 .setDescription(`Use the **/play playlist <list-name>** command to play.\nType **/playlist list <list-name>** to see the songs\n${playlist?.playlist?.map(data =>
 `\n**${number++} |** \`${data.name}\` - **${playlist?.musics?.filter(m => m.playlist_name === data.name)?.length || 0}** plays (<t:${Math.floor(data.createdTime / 1000) }:R>)`
 ) }`)
-.setFooter({ text: '😼' })
+.setFooter({ text: 'More info - Use /help command │ Made By 𝑪𝒂𝒓𝒍 ⚡' })
 return interaction.reply({ embeds: [embed] }).catch(e => { }) 
 
 }
@@ -459,7 +459,7 @@ const current = trackl.slice(start, start + kaçtane)
 if (!current || !current?.length > 0) return interaction.reply({ content: `There are no playlists ❌`, ephemeral: true }).catch(e => { })
 return new EmbedBuilder()
 .setTitle('Available Playlists')
-.setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+.setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
 .setColor(client.config.embedColor)
 .setDescription(`Use the **/play playlist <list-name>** command to play.\nType **/playlist list <list-name>** to see the songs\n${current.map(data =>
 `\n**${sayı++} |** \`${data.name}\` By. \`${data.authorTag}\` - **${data.plays}** "plays" (<t:${Math.floor(data.createdTime / 1000) }:R>)`
@@ -536,7 +536,7 @@ const embed = new EmbedBuilder()
 .setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
 .setColor(client.config.embedColor)
 .setDescription('Timeout use the command again')
-.setFooter({ text: 'Made by Carl' })
+.setFooter({ text: 'More info - Use /help command │ Made By 𝑪𝒂𝒓𝒍 ⚡' })
 return interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { })
 
 })
