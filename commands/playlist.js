@@ -124,7 +124,7 @@ return interaction.reply({ content: '⚠️ Album already Exitst!', ephemeral: t
 
 if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Exceeded Album limit', ephemeral: true }).catch(e => { })
 
-await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Album has been successfully created }).catch(e => { })
+await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Creating Album!` }).catch(e => { })
 
 await db.playlist.updateOne({ userID: interaction.user.id }, {
 $push: {
@@ -141,7 +141,6 @@ createdTime: Date.now()
 
 await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Sucessfully` }).catch(e => { })
 }
-
 
 if (stp === "delete") {
 let name = interaction.options.getString('name')
@@ -549,4 +548,3 @@ return interaction.editReply({ embeds: [embed], components: [button] }).catch(e 
   }
 },
 };
-
