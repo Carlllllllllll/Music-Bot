@@ -18,7 +18,19 @@ module.exports = {
         }
       ]
     },
-
+    {
+      name: "playlist",
+      description: "Write your playlist name.",
+      type: ApplicationCommandOptionType.Subcommand,
+      options: [
+        {
+          name: "name",
+          description: "Write the name of the playlist you want to create.",
+          type: ApplicationCommandOptionType.String,
+          required: true
+        }
+      ]
+    },
   ],
   voiceChannel: true,
   run: async (client, interaction) => {
@@ -43,7 +55,7 @@ module.exports = {
 
             if (playlist_owner_filter !== interaction.member.id) {
               if (playlist_public_filter === false) {
-                return interaction.reply({ content: `❌`, ephemeral: true }).catch(e => { })
+                return interaction.reply({ content: `Playing Your Album!`, ephemeral: true }).catch(e => { })
               }
             }
 
