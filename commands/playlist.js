@@ -11,7 +11,7 @@ type: ApplicationCommandOptionType.Subcommand,
 options: [
 {
 name: "name",
-description: "Give a name for your playlist",
+description: "Give a name for you playlist",
 type: ApplicationCommandOptionType.String,
 required: true
 },
@@ -124,7 +124,7 @@ return interaction.reply({ content: '⚠️ Album already Exitst!', ephemeral: t
 
 if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Exceeded Album limit', ephemeral: true }).catch(e => { })
 
-await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Album has been successfully created }).catch(e => { })
+await interaction.reply({ content: `<@${interaction.member.id}>, 🎸 Creating Album!` }).catch(e => { })
 
 await db.playlist.updateOne({ userID: interaction.user.id }, {
 $push: {
@@ -139,7 +139,7 @@ createdTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Successfully` }).catch(e => { })
+await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Sucessfully` }).catch(e => { })
 }
 
 if (stp === "delete") {
@@ -192,7 +192,7 @@ res = await client.player.search(name, {
   interaction
   })
 } catch (e) {
-return interaction.reply({ content: 'Cannot Find ❌', ephemeral: true }).catch(e => { })
+return interaction.reply({ content: 'Cannod Find ❌', ephemeral: true }).catch(e => { })
 }
 if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `Cannot Find ❌ `, ephemeral: true }).catch(e => { })
 
@@ -212,7 +212,7 @@ saveTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, \`${res[0]?.name}\` Song has been added successfully!` }).catch(e => { })
+await interaction.editReply({ content: `<@${interaction.member.id}>, \`${res[0]?.name}\` Playing Now!` }).catch(e => { })
 
 }
 
