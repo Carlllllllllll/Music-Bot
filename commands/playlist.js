@@ -139,9 +139,8 @@ createdTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Successfully` }).catch(e => { })
-
-
+await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Sucessfully` }).catch(e => { })
+}
 
 if (stp === "delete") {
 let name = interaction.options.getString('name')
