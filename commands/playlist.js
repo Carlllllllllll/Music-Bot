@@ -2,7 +2,7 @@ const { ApplicationCommandOptionType, EmbedBuilder, ActionRowBuilder, ButtonBuil
 const db = require('../mongoDB');
 module.exports = {
 name: "playlist",
-description: "Lets you manage playlist commands.",
+description: "Lets your manage playlist commands.",
 options: [
 {
 name: "create",
@@ -11,7 +11,7 @@ type: ApplicationCommandOptionType.Subcommand,
 options: [
 {
 name: "name",
-description: "Give a name for you playlist",
+description: "Give a name for your playlist",
 type: ApplicationCommandOptionType.String,
 required: true
 },
@@ -192,7 +192,7 @@ res = await client.player.search(name, {
   interaction
   })
 } catch (e) {
-return interaction.reply({ content: 'Cannod Find ❌', ephemeral: true }).catch(e => { })
+return interaction.reply({ content: 'Cannot Find ❌', ephemeral: true }).catch(e => { })
 }
 if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `Cannot Find ❌ `, ephemeral: true }).catch(e => { })
 
