@@ -25,7 +25,7 @@ module.exports = {
       options: [
         {
           name: "name",
-          description: "Write the name of the playlist you want to create.",
+          description: "Write your playlist name.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
