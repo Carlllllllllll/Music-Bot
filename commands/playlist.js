@@ -11,7 +11,7 @@ type: ApplicationCommandOptionType.Subcommand,
 options: [
 {
 name: "name",
-description: "Give a name for you playlist",
+description: "Give a name for your playlist",
 type: ApplicationCommandOptionType.String,
 required: true
 },
