@@ -139,7 +139,7 @@ createdTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, ✅ Album Created Sucessfully` }).catch(e => { })
+await interaction.editReply({ content: `<@${interaction.member.id}>, `✅ Album Created Sucessfully` }).catch(e => { })
 }
 
 if (stp === "delete") {
