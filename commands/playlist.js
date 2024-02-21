@@ -212,7 +212,7 @@ saveTime: Date.now()
 }
 }, { upsert: true }).catch(e => { })
 
-await interaction.editReply({ content: `<@${interaction.member.id}>, \`${res[0]?.name}\` Playing Now!` }).catch(e => { })
+await interaction.editReply({ content: `<@${interaction.member.id}>, \`${res[0]?.name}\` Song has been added successfully!` }).catch(e => { })
 
 }
 
