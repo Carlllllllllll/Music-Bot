@@ -9,19 +9,26 @@ name: "create",
 description: "Create a playlist.",
 type: ApplicationCommandOptionType.Subcommand,
 options: [
+// Existing code...
 {
-name: "name",
-description: "Give a name for you playlist",
-type: ApplicationCommandOptionType.String,
-required: true
-},
-{
-name: "public",
-description: "Want to make it Public ? True 0r false",
-type: ApplicationCommandOptionType.Boolean,
-required: true
-}
-]
+  name: "create",
+  description: "Create a playlist.",
+  type: ApplicationCommandOptionType.Subcommand,
+  options: [
+    {
+      name: "name",
+      description: "Give a name for your playlist",
+      type: ApplicationCommandOptionType.String,
+      required: true
+    },
+    {
+      name: "public",
+      description: "Want to make it Public? (This option will always be false)",
+      type: ApplicationCommandOptionType.Boolean,
+      required: false,
+      default: false
+    }
+  ]
 },
 {
 name: "delete",
@@ -180,7 +187,7 @@ let playlist_name = interaction.options.getString('playlist-name')
 if (!playlist_name) return interaction.reply({ content: '⚠️ Enter album name to add songs', ephemeral: true }).catch(e => { })
 
 const playlist = await db.playlist.findOne({ userID: interaction.user.id }).catch(e => { })
-if (!playlist?.playlist?.filter(p => p.name === playlist_name).length > 0) return interaction.reply({ content: 'Your Song Added!', ephemeral: true }).catch(e => { })
+if (!playlist?.playlist?.filter(p => p.name === playlist_name).length > 0) return interaction.reply({ content: 'Your has been song added!', ephemeral: true }).catch(e => { })
 
 let max_music = client.config.playlistSettings.maxMusic
 if (playlist?.musics?.filter(m => m.playlist_name === playlist_name).length > max_music) return interaction.reply({ content: "Reached Album songs limit".replace("{max_music}", max_music), ephemeral: true }).catch(e => { })
@@ -192,7 +199,7 @@ res = await client.player.search(name, {
   interaction
   })
 } catch (e) {
-return interaction.reply({ content: 'Cannod Find ❌', ephemeral: true }).catch(e => { })
+return interaction.reply({ content: 'Cannot Find ❌', ephemeral: true }).catch(e => { })
 }
 if (!res || !res.length || !res.length > 1) return interaction.reply({ content: `Cannot Find ❌ `, ephemeral: true }).catch(e => { })
 
@@ -331,7 +338,7 @@ let currentIndex = 0
 collector.on("collect", async (button) => {
 if (button.customId === "close") {
 collector.stop()
-return button.reply({ content: `Command Cancelled ❌`, ephemeral: true }).catch(e => { })
+return button.reply({ content: `Command cancelled ❌`, ephemeral: true }).catch(e => { })
 } else {
 
 if (button.customId === backId) {
