@@ -31,7 +31,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "RTX GAMING",
+  "author": "Carl",
   "license": "XX",
   "engines": {
     "node": "18.x"
