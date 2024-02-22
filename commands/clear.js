@@ -31,7 +31,7 @@ module.exports = {
       }
 
       if (!queue.songs[0]) {
-        return interaction.reply({ content: '❌ Queue is empty!!', ephemeral: true });
+        return interaction.reply({ content: '❌ The Queue is empty!!', ephemeral: true });
       }
 
       await queue.stop(interaction.guild.id);
