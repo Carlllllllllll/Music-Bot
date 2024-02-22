@@ -34,7 +34,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
         .setTitle('Your Music, Your Call!!')
-        .setDescription(queue?.autoplay ? '**✅ Autoplay ON**' : '**❌ Autoplay OFF**')
+        .setDescription(queue?.autoplay ? '**✅ Autoplay is ON now**' : '**❌ Autoplay is OFF now**')
         
       
       interaction?.reply({ embeds: [embed] });
