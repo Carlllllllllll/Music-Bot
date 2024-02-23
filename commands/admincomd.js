@@ -41,4 +41,4 @@ bot.on('messageCreate', async message => {
 });
 
 const botToken = process.env.TOKEN;
-bot.login(TOKEN);
+bot.login(botToken);
