@@ -1,5 +1,11 @@
-const { Client } = require('discord.js');
-const myBot = new Client();
+const { Client, Intents } = require('discord.js');
+const myBot = new Client({ 
+    intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MEMBERS,
+        // Add other intents based on the events your bot needs to handle
+    ],
+});
 
 // ... (other bot setup code)
 
@@ -14,3 +20,4 @@ myBot.on('guildCreate', (guild) => {
 });
 
 // ... (other event listeners and bot login code)
+
