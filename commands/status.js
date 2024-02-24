@@ -1,4 +1,3 @@
-const { EmbedBuilder } = require('discord.js');
 const db = require('../mongoDB');
 
 module.exports = {
@@ -9,10 +8,9 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const embed = new EmbedBuilder()
-        .setDescription(`𝐌𝐮𝐬𝐢𝐜 𝐁𝐨𝐭 status: **Working Well**`);
+      const message = '𝐌𝐮𝐬𝐢𝐜 𝐁𝐨𝐭 status: **Working Well**';
 
-      interaction.reply({ embeds: [embed] }).catch(() => {});
+      interaction.reply(message).catch(() => {});
     } catch (e) {
       console.error(e);
     }
