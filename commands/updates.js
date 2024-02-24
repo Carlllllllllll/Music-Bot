@@ -26,7 +26,7 @@ When you type /play and enter your song name, you will receive **:x: No results 
 **--------------------------------**
 **Changes**
         
-At this moment, there haven not been any changes.
+At this moment, there haven't not been any changes.
 **--------------------------------**
 **Do you have a problem with our bot?**
         
