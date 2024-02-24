@@ -15,7 +15,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#00ff00')
         .setDescription(`testststvdtyv`)
-        .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
+        
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
