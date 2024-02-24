@@ -14,21 +14,7 @@ module.exports = {
 
       const embed = new EmbedBuilder()
         .setColor('#00ff00')
-        .setDescription(`
-        **Updates**
-        New commands have been added: /help-us, /bot-info, and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
-        --------------------------------
-        **Bugs**
-        
-        When you type /play and enter your song name, you will receive **❌ No results found.** **[FIXED]**
-        **--------------------------------**
-        **Changes**
-        
-        At this moment, there haven't been any changes.
-        **--------------------------------**
-        **Do you have a problem with our bot?**
-        
-        No worries! Join our support server and type /report our support team is always online. \n Support Server: [Join Here](${discordServerLink})`)
+        .setDescription(`testststvdtyv`)
         .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
