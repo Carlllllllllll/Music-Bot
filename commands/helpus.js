@@ -32,7 +32,7 @@ Warm regards,
 Carl (Owner) 
 
 \nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
-       .setImage('https://media1.tenor.com/m/X6B3JAQGvy4AAAAC/pain-naruto.gif');
+       .setImage('https://media1.tenor.com/m/KxgaXJqz8agAAAAC/naruto-naruto-shippuden.gif');
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
       console.error(e);
