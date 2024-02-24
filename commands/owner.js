@@ -17,7 +17,7 @@ const { EmbedBuilder } = require('discord.js');
 const db = require('../mongoDB');
 
 module.exports = {
-  name: 'owner',
+  name: 'about-owner',
   description: 'Get information about the bot owner.',
   permissions: '0x0000000000000800',
   options: [],
@@ -30,9 +30,11 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#00ff00')
         .setAuthor({
-          name: 'Bot Owner',
+          name: 'About Owner',
         })
-        .setDescription(`__**About me**__:\n\n ▶️ I'm Carl, a Discord bot developer and web developer. I enjoy playing games, watching anime, and building various web server applications. For faster replies, contact me on Discord!\n Support Server: [Join Here](${discordServerLink})\n Discord Profile: [My Discord Profile](${discordProfileLink})`)
+        .setDescription(`__**About me**__:\n\n Hello, I'm Carl, an Egyptian Discord bot developer and web developer. I specialize in building various web server applications, and I'm also a gamer who loves Naruto Uzumaki. If you need assistance, feel free to contact me on Discord.
+
+\n Support Server: [Join Here](${discordServerLink})\n Discord Profile: [My Discord Profile](${discordProfileLink})`)
         .setImage('https://media1.tenor.com/m/7GyHsInT8uoAAAAC/naruto.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
