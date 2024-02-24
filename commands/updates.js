@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const db = require('../mongoDB');
 
 module.exports = {
-  name: 'updates',
+  name: '#0000ff',
   description: 'Get information about the bot updates',
   permissions: '0x0000000000000800',
   options: [],
