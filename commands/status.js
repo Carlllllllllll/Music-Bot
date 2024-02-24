@@ -8,7 +8,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const message = '𝐌𝐮𝐬𝐢𝐜 𝐁𝐨𝐭 status: **Working Well**';
+      const message = 'Bot status: **Working**';
 
       interaction.reply(message).catch(() => {});
     } catch (e) {
