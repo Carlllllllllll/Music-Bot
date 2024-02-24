@@ -92,12 +92,6 @@ name: "lists",
 description: "Browse all your playlists.",
 type: ApplicationCommandOptionType.Subcommand,
 options: []
-},
-{
-name: "top",
-description: "Most popular playlists.",
-type: ApplicationCommandOptionType.Subcommand,
-options: []
 }
 
 ],
