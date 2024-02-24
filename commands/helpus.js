@@ -25,11 +25,12 @@ The bot, created on 01/26/2024, was shared on the internet on 02/16/2024. In our
 
 Your collaboration in this matter holds significant value for us, and we sincerely appreciate your thoughtful consideration. Thank you for taking the time to read this message, and we look forward to the possibility of working together. Please stay with us for more updates.
 
-Feel free to explore all the commands and gather more information about this bot by typing /help.
+Feel free to explore all the commands and gather more information about this bot by typing **/help**.
 
 Warm regards,
 
-Carl (Owner) \nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
+Carl (Owner) 
+\nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
        .setTimestamp()
        .setImage('https://media1.tenor.com/m/X6B3JAQGvy4AAAAC/pain-naruto.gif');
       interaction.reply({ embeds: [embed] }).catch(() => {});
