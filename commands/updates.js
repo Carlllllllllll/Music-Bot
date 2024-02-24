@@ -31,7 +31,7 @@ At this moment, there haven not been any changes.
 **Do you have a problem with our bot?**
         
 No worries! Join our support server and type /report our support team is always online. \n Support Server: [Join Here](${discordServerLink})`)
-        .setImage('https://media1.tenor.com/m/7GyHsInT8uoAAAAC/naruto.gif');
+        .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
