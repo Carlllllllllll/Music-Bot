@@ -24,7 +24,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const discordServerLink = 'https://discord.gg/aQHhb2Sb';
+      const discordServerLink = 'https://discord.gg/XuvB8URUez';
       const discordProfileLink = 'https://discordapp.com/users/1126336222206365696';
 
       const embed = new EmbedBuilder()
