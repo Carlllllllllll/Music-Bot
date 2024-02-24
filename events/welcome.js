@@ -27,3 +27,4 @@ client.on("guildCreate", (guild) => {
 
 // Log in to your bot using your token
 client.login("TOKEN");
+
