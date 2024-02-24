@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const db = require('../mongoDB');
 
 module.exports = {
-  name: 'owner',
+  name: 'test',
   description: 'Get information about the bot owner.',
   permissions: '0x0000000000000800',
   options: [],
