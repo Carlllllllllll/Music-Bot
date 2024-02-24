@@ -9,7 +9,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const supportServerLink = 'https://discord.gg/CgBZthGTXQ';
+      const supportServerLink = 'https://discord.gg/XuvB8URUez';
       const BotInviteLink = 'https://discord.com/oauth2/authorize?client_id=1200206489260933232&permissions=8&scope=bot';
 
       const embed = new EmbedBuilder()
