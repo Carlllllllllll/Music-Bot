@@ -1,25 +1,25 @@
-const { Intents } = require('discord.js');
-const config = require('./config');
+const Discord = require("discord.js");
 
-const myBot = // Your existing bot instance, obtained from the login code in config.js
+// Initialize your bot client
+const client = new Discord.Client();
 
-myBot.on('guildCreate', (guild) => {
-    const welcomeMessage = `Thanks for adding the bot to ${guild.name}!`;
-
-    // Send the welcome message to a specific channel or use guild.owner.send(welcomeMessage) to DM the server owner
-    // Example: 
-    const welcomeChannel = guild.channels.cache.find(channel => 
-        channel.name === 'general' || 
-        channel.name === 'main' || 
-        channel.name === 'chat' || 
-        channel.name === 'welcome'
+// Event handler for when your bot joins a server
+client.on("guildCreate", (guild) => {
+    // Find the first cached text channel where the bot has permissions to send messages
+    const channel = guild.channels.cache.find(
+        (channel) => channel.type === "GUILD_TEXT" && channel.permissionsFor(guild.me).has("SEND_MESSAGES")
     );
-    
-    if (welcomeChannel) {
-        welcomeChannel.send(welcomeMessage);
+
+    // Send the welcome message if a suitable channel is found
+    if (channel) {
+        channel.send("Thank you for inviting me! I'm here to assist you. Enjoy your time! 🤖");
+    } else {
+        console.error("No suitable text channel found for sending the welcome message.");
     }
 });
 
-// Other event listeners and bot functionality can be added here as needed
+// Log in to your bot using your token
+client.login("YOUR_BOT_TOKEN");
+
 
 
