@@ -18,7 +18,7 @@ module.exports = {
           name: 'News',
         })
         .setDescription(`**Updates**
-New commands have been added **/help-us** - **/bot-info** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
+New commands have been added **/help-us** - **/bot-info** - **/bot-status** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
 **--------------------------------**
 **Bugs**
         
