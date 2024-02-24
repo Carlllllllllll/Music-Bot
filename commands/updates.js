@@ -18,8 +18,8 @@ module.exports = {
           name: 'News',
         })
         .setDescription(`**Updates**
-New commands have been added: /help-us, /bot-info, and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
---------------------------------
+New commands have been added: **/help-us** - **/bot-info** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
+**--------------------------------**
 **Bugs**
         
 When you type /play and enter your song name, you will receive **:x: No results found.** **[FIXED]**
