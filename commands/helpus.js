@@ -15,7 +15,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#ffff00')
         .setAuthor({
-          name: '*elp Us',
+          name: 'Help Us',
         })
        .setDescription(`Hello, I am Carl, the owner of this bot. Our bot is offered completely free and boasts high quality. However, we find ourselves in need of your assistance. The bot was created on 01/26/2024 and shared on the internet on 02/16/2024. We kindly ask for your help in verifying our bot by adding it to your server. Your support in this matter would mean a lot to us, and we sincerely appreciate your consideration. Thank you for taking the time to read this message. Please stay with us for more updates. Note: Feel free to type /help to discover all commands and gather more information about this bot. \nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
        .setTimestamp()
