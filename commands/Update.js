@@ -31,7 +31,7 @@ module.exports = {
          
          **Do you have a problem with our bot?**
          
-         No worries! Join our support server and type /report; our support team is online 24/7.\nSupport Server: [Join Here](${supportServerLink})`)
+         No worries! Join our support server and type /report; our support team is online 24/7.)`)
        .setImage('https://media1.tenor.com/m/N6X3ceoYtUkAAAAC/never-update-chicken.gif');
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
