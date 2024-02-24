@@ -13,7 +13,7 @@ module.exports = {
       const BotInviteLink = 'https://discord.com/oauth2/authorize?client_id=1200206489260933232&permissions=8&scope=bot';
 
       const embed = new EmbedBuilder()
-        .setColor('#ffff00')
+        .setColor('#FF0000')
         .setAuthor({
           name: 'Help Us',
         })
