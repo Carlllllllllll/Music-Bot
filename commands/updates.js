@@ -9,11 +9,11 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const discordServerLink = 'https://discord.gg/aQHhb2Sb';
+      const discordServerLink = 'https://discord.gg/XuvB8URUez';
       
 
       const embed = new EmbedBuilder()
-        .setColor('#00ff00')
+        .setColor('#0864e0')
         .setAuthor({
           name: 'News',
         })
