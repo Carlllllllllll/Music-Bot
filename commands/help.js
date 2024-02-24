@@ -31,7 +31,9 @@ module.exports = {
           { name: '🎶 Playlist Lists', value: 'To see all playlists' },
           { name: '🎷 Playlist Top ', value: 'To see the top playlists in this bot' },
           { name: 'ℹ️ Bot Info ', value: 'To know more info about the bot' },
-          { name: '👑 About Owner', value: 'Hello, I am Carl. I am here to help 24/7. If there are any bugs or if you have any questions, do not hesitate to DM me. For more information about me, type /owner in any channel. 😊' }
+          { name: '💡 Help us ', value: 'Help our team' },
+          { name: '🔧 Updates ', value: 'To know about the bot updates.' },
+          { name: '👑 About Owner', value: 'Hello, I am Carl. I am here to help 24/7. If there are any bugs or if you have any questions, do not hesitate to DM me. For more information about me, type /owner in any channel.' }
         )
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177`);
 
