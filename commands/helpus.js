@@ -32,7 +32,6 @@ Warm regards,
 Carl (Owner) 
 
 \nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
-       .setTimestamp()
        .setImage('https://media1.tenor.com/m/X6B3JAQGvy4AAAAC/pain-naruto.gif');
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
