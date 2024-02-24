@@ -29,7 +29,6 @@ module.exports = {
           { name: '🎷 Playlist Delete Music', value: 'To delete a specific music in your playlist' },
           { name: '🎻 Playlist List', value: 'To see all songs in a specific playlist' },
           { name: '🎶 Playlist Lists', value: 'To see all playlists' },
-          { name: '🎷 Playlist Top ', value: 'To see the top playlists in this bot' },
           { name: 'ℹ️ Bot Info ', value: 'To know more info about the bot' },
           { name: '💡 Help us ', value: 'Help our team' },
           { name: '🔧 Updates ', value: 'To know about the bot updates' },
