@@ -8,7 +8,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const message = 'Bot status: **Working**';
+      const message = 'Bot status: **In Development**';
 
       interaction.reply(message).catch(() => {});
     } catch (e) {
