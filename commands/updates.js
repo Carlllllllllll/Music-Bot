@@ -18,19 +18,20 @@ module.exports = {
           name: 'News',
         })
         .setDescription(`**Updates**
-New commands have been added **/help-us** - **/bot-info** - **/bot-status** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
+- New commands have been added **/help-us** - **/bot-info** - **/bot-status** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
 **--------------------------------**
 **Bugs**
         
-When you type /play and enter your song name, you will receive **:x: No results found.** **[FIXED]**
+- When you type /play and enter your song name, you will receive **:x: No results found.** **[FIXED]**
+- When playing music, the audio was experiencing significant lag. [FIXED]
 **--------------------------------**
 **Changes**
         
-At this moment, there haven't not been any changes.
+- The MongoDB was modified to fix the music lag bug, but this required the database to be reset, removing your playlists. I assure you this won't happen again , Sorry.
 **--------------------------------**
 **Do you have a problem with our bot?**
         
-No worries! Join our support server and type /report our support team is always online. \n Support Server: [Join Here](${discordServerLink})`)
+- No worries! Join our support server and type /report our support team is always online. \n Support Server: [Join Here](${discordServerLink})`)
         .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
