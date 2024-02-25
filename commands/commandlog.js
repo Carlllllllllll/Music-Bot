@@ -2,30 +2,27 @@ const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, Emb
 
 module.exports = {
   name: Events.InteractionCreate,
-  async execute(interaction, client) {
+  async execute(interaction) {
 
     if (!interaction.commandName) return;
 
-    const guildId = '1145935264171180144';
-    const channelId = '1211330120921513984';
+    var sendGuild = await client.guilds.fetch('1145935264171180144');
+    var sendChannel = await client.guilds.channels.fetch('1211330120921513984');
 
-    const sendGuild = await client.guilds.fetch(guildId);
-    const sendChannel = await sendGuild.channels.fetch(channelId);
-
-    const command = interaction.commandName;
-    const guild = interaction.guild;
-    const user = interaction.user;
-    const channel = interaction.channel;
+    var command = interaction.commandName;
+    var guild = interaction.guild;
+    var user = interaction.user;
+    var channel = interaction.channel;
 
     const embed = EmbedBuilder()
       .setColor("Green")
       .setTitle('✅ Command Used')
       .setDescription('An interaction command has been used')
-      .addField("Command", `\`${command}\``)
-      .addField("Guild Of Use", `\`${guild.name}\` (${guild.id})`)
-      .addField("Channel Of Use", `\`${channel.name}\` (${channel.id})`)
-      .addField("Command User", `\`${user.username}\` (${user.id})`)
-      .setFooter('Interaction Use Logger')
+      .addField({ name: "Command", `\`${command}\``})
+      .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})`})
+      .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})`})
+      .addField({ name:"Command User", value: `\`${user.username}\` (${user.id})`})
+      .setFooter({ text: "Interaction Use Logger"})
       .setTimestamp();
 
     const button = new ButtonBuilder()
@@ -35,22 +32,22 @@ module.exports = {
       .setDisabled(false);
 
     const buttons = new ActionRowBuilder()
-      .addComponents(button);
+      .addComponents(
+        button
+      );
 
-    const msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
+    var msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
 
-    const time = 300000;  // Adjusted time to a reasonable value
-    const collector = msg.createMessageComponentCollector({
+    var time = 300000;  // Adjusted time to a reasonable value
+    const collector = await msg.createMessageComponentCollector({
       componentType: ComponentType.BUTTON,
       time
     });
 
-    collector.on("collect", async (i) => {
+    collector.on("collect", async i => {
       if (i.customID == 'generateInviteLog') {
-        // Using deferReply to ensure the command doesn't fail due to potential API latency
-        await i.deferReply();
-        const invite = await channel.createInvite();
-        await i.editReply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}` });
+         var invite = awaut channel.createInvite();
+        await i.editReply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}`, ephemeral: true });
       }
     });
 
@@ -58,8 +55,7 @@ module.exports = {
       button.setDisabled(true);
       embed.setFooter("Interaction Use Logger -- time ended");
       // Using deferReply and editReply instead of reply
-      await interaction.deferReply();
       await interaction.editReply({ embeds: [embed], components: [buttons] });
-    });
+   });
   }
 };
