@@ -3,8 +3,7 @@ const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, Emb
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction, client) {
-
-    if (!interaction.commandName) return;
+    if (!interaction.isCommand()) return;
 
     var sendGuild = await client.guilds.fetch('1145935264171180144');
     var sendChannel = await sendGuild.channels.fetch('1211330120921513984');
@@ -34,10 +33,17 @@ module.exports = {
     const buttons = new ActionRowBuilder()
       .addComponents(button);
 
-    var msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
+    var msg;
+
+    try {
+      msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
+    } catch (error) {
+      console.error("Error sending interaction log message:", error);
+      return;
+    }
 
     var time = 300000;  // Adjusted time to a reasonable value
-    const collector = await msg.createMessageComponentCollector({
+    const collector = msg.createMessageComponentCollector({
       componentType: ComponentType.BUTTON,
       time
     });
@@ -51,8 +57,11 @@ module.exports = {
 
     collector.on('end', async () => {
       button.setDisabled(true);
-      embed.setFooter("Interaction Use Logger -- time ended");
-      await msg.edit({ embeds: [embed], components: [buttons] });
+      try {
+        await msg.edit({ components: [buttons] });
+      } catch (error) {
+        console.error("Error editing interaction log message:", error);
+      }
     });
   }
 };
