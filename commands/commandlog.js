@@ -46,7 +46,7 @@ module.exports = {
 
     collector.on("collect", async i => {
       if (i.customID == 'generateInviteLog') {
-         var invite = awaut channel.createInvite();
+         var invite = await channel.createInvite();
         await i.editReply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}`, ephemeral: true });
       }
     });
