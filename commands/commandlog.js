@@ -1,7 +1,7 @@
 const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } = require("discord.js");
 
 module.exports = {
-  name: Events.Interaction,
+  name: Events.InteractionCreate,
   async execute(interaction) {
 
     if (!interaction.commandName) return;
