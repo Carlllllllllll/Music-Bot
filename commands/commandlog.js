@@ -18,10 +18,10 @@ module.exports = {
       .setColor("Green")
       .setTitle('✅ Command Used')
       .setDescription('An interaction command has been used')
-      .addField({ name: "Command", value: `\`${command}\`` })
-      .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})` })
-      .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})` })
-      .addField({ name: "Command User", value: `\`${user.username}\` (${user.id})` })
+      .addField("Command", `\`${command}\``)
+      .addField("Guild Of Use", `\`${guild.name}\` (${guild.id})`)
+      .addField("Channel Of Use", `\`${channel.name}\` (${channel.id})`)
+      .addField("Command User", `\`${user.username}\` (${user.id})`)
       .setFooter('Interaction Use Logger')
       .setTimestamp();
 
@@ -38,14 +38,14 @@ module.exports = {
 
     var time = 300000;  // Adjusted time to a reasonable value
     const collector = await msg.createMessageComponentCollector({
-      componentType: ComponentType.BUTTON,  // Fixed casing
+      componentType: ComponentType.BUTTON,
       time
     });
 
-    collector.on("collect", async i => {
+    collector.on("collect", async (i) => {
       if (i.customID == 'generateInvitelog') {
         var invite = await channel.createInvite();
-        await i.reply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}`, ephemeral: true });
+        await i.reply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}` });
       }
     });
 
