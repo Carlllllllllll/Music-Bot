@@ -18,7 +18,7 @@ module.exports = {
       .setColor("Green")
       .setTitle('✅ Command Used')
       .setDescription('An interaction command has been used')
-      .addField({ name: "Command", `\`${command}\``})
+      .addField({ name: "Command", value: `\`${command}\`` })
       .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})`})
       .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})`})
       .addField({ name:"Command User", value: `\`${user.username}\` (${user.id})`})
