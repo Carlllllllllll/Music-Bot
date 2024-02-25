@@ -22,7 +22,7 @@ module.exports = {
       .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})` })
       .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})` })
       .addField({ name: "Command User", value: `\`${user.username}\` (${user.id})` })
-      .setFooter({'Interaction Use Logger'})
+      .setFooter('Interaction Use Logger')
       .setTimestamp();
 
     const button = new ButtonBuilder()
