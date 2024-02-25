@@ -23,7 +23,7 @@ module.exports = {
 **Bugs**
         
 - When you type /play and enter your song name, you will receive **:x: No results found.** **[FIXED]**
-- When playing music, the audio was experiencing significant lag. [FIXED]
+- When playing music, the audio was experiencing significant lag. **[FIXED]**
 **--------------------------------**
 **Changes**
         
