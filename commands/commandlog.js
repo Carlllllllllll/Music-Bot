@@ -1,64 +1,58 @@
-const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder}
+const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } = require("discord.js");
 
 module.exports = {
-  name:  Events.Interaction,
-  async execute (interaction, client) {
+  name: Events.Interaction,
+  async execute(interaction, client) {
 
     if (!interaction.commandName) return;
 
     var sendGuild = await client.guilds.fetch('1145935264171180144');
-    var sendchannel = sendGuild.channels.fetch('1154551905935179806');
+    var sendChannel = await sendGuild.channels.fetch('1154551905935179806');
 
-    var commmand = interaction.CommandName;
+    var command = interaction.commandName;
     var guild = interaction.guild;
     var user = interaction.user;
     var channel = interaction.channel;
 
     const embed = EmbedBuilder()
-    .setColor ("Green")
-    .setTitle (:white_check_mark: Command Used)
-    .setDescritpion('An interaction command has been used')
-    .addField({ name: "Command", value: `\`${command}\``})
-    .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})`})
-    .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})`})
-    .addField({ name: "Command User", value: `\`${user.username}\` (${user.id})`})
-    .setFooter({ text: Interaction Use Logger})
-    .setTimestamp();
+      .setColor("Green")
+      .setTitle('✅ Command Used')
+      .setDescription('An interaction command has been used')
+      .addField({ name: "Command", value: `\`${command}\`` })
+      .addField({ name: "Guild Of Use", value: `\`${guild.name}\` (${guild.id})` })
+      .addField({ name: "Channel Of Use", value: `\`${channel.name}\` (${channel.id})` })
+      .addField({ name: "Command User", value: `\`${user.username}\` (${user.id})` })
+      .setFooter('Interaction Use Logger')
+      .setTimestamp();
 
-    const button = new BottonBuilder()
-    .setStyle(ButtonStyle.danger)
-    .setcustomID(`generateInvitelog`)
-    .setLabel(`Generate Invite Link`)
-    .setDisabled (false);
+    const button = new ButtonBuilder()
+      .setStyle(ButtonStyle.danger)
+      .setCustomID(`generateInvitelog`)
+      .setLabel(`Generate Invite Link`)
+      .setDisabled(false);
 
     const buttons = new ActionRowBuilder()
-    .addComponents(
-      button
-    );
+      .addComponents(button);
 
-    vas msg = await sendChannel.send ({ embeds: [embed], components: [buttons] });
+    var msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
 
-    var time = 30000000000000000000000000000;
-    const collecter = await msg.createMessageComponentCollecter({
-      ComponentType: ComponentType.Button,
+    var time = 300000;  // Adjusted time to a reasonable value
+    const collector = await msg.createMessageComponentCollector({
+      componentType: ComponentType.BUTTON,  // Fixed casing
       time
     });
 
-    collecter.on("collect", async i => {
-      if (i.custonID == 'generateInvitelog') {
-        var invite = await channel.createinvite() ;
-        await i.reply ({ content: `Here the invite to the guild fo command use: `https://discord.gg/${invite.code}` , ephemeral: true });
+    collector.on("collect", async i => {
+      if (i.customID == 'generateInvitelog') {
+        var invite = await channel.createInvite();
+        await i.reply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}`, ephemeral: true });
       }
     });
 
-    collecter.on('end' , async () ==> 
+    collector.on('end', async () => {
       button.setDisabled(true);
-      embed.setFooter("Interaction Use Logger -- time ended"});
-      await msg.edit ({ embeds: [embed], components: [buttons] });
-  });
-      
-    
-    
-
+      embed.setFooter("Interaction Use Logger -- time ended");
+      await msg.edit({ embeds: [embed], components: [buttons] });
+    });
   }
-}
+};
