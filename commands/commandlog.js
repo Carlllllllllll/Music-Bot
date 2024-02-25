@@ -2,7 +2,7 @@ const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, Emb
 
 module.exports = {
   name: Events.InteractionCreate,
-  async execute(interaction) {
+  async execute(interaction, client) {
 
     if (!interaction.commandName) return;
 
