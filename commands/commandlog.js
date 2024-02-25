@@ -3,13 +3,14 @@ const { Events, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, Emb
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction, client) {
-    if (!interaction.isCommand()) return;
 
-    const sendGuildId = '1145935264171180144';
-    const sendChannelId = '1211330120921513984';
+    if (!interaction.commandName) return;
 
-    const sendGuild = await client.guilds.fetch(sendGuildId);
-    const sendChannel = await sendGuild.channels.fetch(sendChannelId);
+    const guildId = '1145935264171180144';
+    const channelId = '1211330120921513984';
+
+    const sendGuild = await client.guilds.fetch(guildId);
+    const sendChannel = await sendGuild.channels.fetch(channelId);
 
     const command = interaction.commandName;
     const guild = interaction.guild;
@@ -29,32 +30,36 @@ module.exports = {
 
     const button = new ButtonBuilder()
       .setStyle(ButtonStyle.danger)
-      .setCustomID(`generateInvitelog`)
+      .setCustomID(`generateInviteLog`)
       .setLabel(`Generate Invite Link`)
       .setDisabled(false);
 
     const buttons = new ActionRowBuilder()
       .addComponents(button);
 
-    let msg;
+    const msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
 
-    try {
-      msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
-    } catch (error) {
-      console.error("Error sending interaction log message:", error);
-      return;
-    }
-
+    const time = 300000;  // Adjusted time to a reasonable value
     const collector = msg.createMessageComponentCollector({
       componentType: ComponentType.BUTTON,
-      time: 300000, // Adjusted time to a reasonable value
+      time
     });
 
     collector.on("collect", async (i) => {
-      if (i.customID == 'generateInvitelog') {
+      if (i.customID == 'generateInviteLog') {
+        // Using deferReply to ensure the command doesn't fail due to potential API latency
+        await i.deferReply();
         const invite = await channel.createInvite();
-        await i.reply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}` });
+        await i.editReply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}` });
       }
+    });
+
+    collector.on('end', async () => {
+      button.setDisabled(true);
+      embed.setFooter("Interaction Use Logger -- time ended");
+      // Using deferReply and editReply instead of reply
+      await interaction.deferReply();
+      await interaction.editReply({ embeds: [embed], components: [buttons] });
     });
   }
 };
