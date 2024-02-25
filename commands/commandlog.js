@@ -5,13 +5,16 @@ module.exports = {
   async execute(interaction, client) {
     if (!interaction.isCommand()) return;
 
-    var sendGuild = await client.guilds.fetch('1145935264171180144');
-    var sendChannel = await sendGuild.channels.fetch('1211330120921513984');
+    const sendGuildId = '1145935264171180144';
+    const sendChannelId = '1211330120921513984';
 
-    var command = interaction.commandName;
-    var guild = interaction.guild;
-    var user = interaction.user;
-    var channel = interaction.channel;
+    const sendGuild = await client.guilds.fetch(sendGuildId);
+    const sendChannel = await sendGuild.channels.fetch(sendChannelId);
+
+    const command = interaction.commandName;
+    const guild = interaction.guild;
+    const user = interaction.user;
+    const channel = interaction.channel;
 
     const embed = EmbedBuilder()
       .setColor("Green")
@@ -33,7 +36,7 @@ module.exports = {
     const buttons = new ActionRowBuilder()
       .addComponents(button);
 
-    var msg;
+    let msg;
 
     try {
       msg = await sendChannel.send({ embeds: [embed], components: [buttons] });
@@ -42,25 +45,15 @@ module.exports = {
       return;
     }
 
-    var time = 300000;  // Adjusted time to a reasonable value
     const collector = msg.createMessageComponentCollector({
       componentType: ComponentType.BUTTON,
-      time
+      time: 300000, // Adjusted time to a reasonable value
     });
 
     collector.on("collect", async (i) => {
       if (i.customID == 'generateInvitelog') {
-        var invite = await channel.createInvite();
+        const invite = await channel.createInvite();
         await i.reply({ content: `Here is the invite to the guild for command use: https://discord.gg/${invite.code}` });
-      }
-    });
-
-    collector.on('end', async () => {
-      button.setDisabled(true);
-      try {
-        await msg.edit({ components: [buttons] });
-      } catch (error) {
-        console.error("Error editing interaction log message:", error);
       }
     });
   }
