@@ -7,7 +7,7 @@ module.exports = {
     if (!interaction.commandName) return;
 
     var sendGuild = await client.guilds.fetch('1145935264171180144');
-    var sendChannel = await sendGuild.channels.fetch('1154551905935179806');
+    var sendChannel = await sendGuild.channels.fetch('1211330120921513984');
 
     var command = interaction.commandName;
     var guild = interaction.guild;
