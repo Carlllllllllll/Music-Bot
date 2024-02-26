@@ -94,7 +94,7 @@ type: ApplicationCommandOptionType.Subcommand,
 options: []
 },
 {
-name: "Recommended",
+name: "top",
 description: "Some recommended playlists",
 type: ApplicationCommandOptionType.Subcommand,
 options: []
@@ -408,7 +408,7 @@ return interaction.reply({ embeds: [embed] }).catch(e => { })
 
 }
 
-if (stp === "Recommended") {
+if (stp === "top") {
 let playlists = await db?.playlist?.find().catch(e => { })
 if (!playlists?.length > 0) return interaction.reply({ content: 'This command is in development; still, there are not any playlists. ❌', ephemeral: true }).catch(e => { })
 
