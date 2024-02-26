@@ -92,6 +92,12 @@ name: "lists",
 description: "Browse all your playlists.",
 type: ApplicationCommandOptionType.Subcommand,
 options: []
+},
+{
+name: "Recommended",
+description: "Some recommended playlists",
+type: ApplicationCommandOptionType.Subcommand,
+options: []
 }
 
 ],
@@ -450,12 +456,12 @@ let a = trackl.length / kaçtane
 const generateEmbed = async (start) => {
 let sayı = page === 1 ? 1 : page * kaçtane - kaçtane + 1
 const current = trackl.slice(start, start + kaçtane)
-if (!current || !current?.length > 0) return interaction.reply({ content: `There are no playlists ❌`, ephemeral: true }).catch(e => { })
+if (!current || !current?.length > 0) return interaction.reply({ content: `This command is in development; still, there aren't any playlists. ❌`, ephemeral: true }).catch(e => { })
 return new EmbedBuilder()
 .setTitle('Available Playlists')
 .setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
 .setColor(client.config.embedColor)
-.setDescription(`Use the **/play playlist <list-name>** command to play.\nType **/playlist list <list-name>** to see the songs\n${current.map(data =>
+.setDescription(`Here are some playlists that have been created by members or the owner. You can create one and make it public by choosing 'true' during the playlist creation process. \n${current.map(data =>
 `\n**${sayı++} |** \`${data.name}\` By. \`${data.authorTag}\` - **${data.plays}** "plays" (<t:${Math.floor(data.createdTime / 1000) }:R>)`
 ) }`)
 .setFooter({ text: `Section ${page}/${Math.floor(a+1) }` })
