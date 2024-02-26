@@ -18,16 +18,16 @@ module.exports = {
           name: 'News',
         })
         .setDescription(`**Updates**
-- New commands have been added **/help-us** - **/bot-info** - **/bot-status** and the playlists commands have been successfully created. Type /help to see how to use all bot commands.
+        
+- A new command has been added that will help you find some playlists. Type /playlist top.
 **--------------------------------**
 **Bugs**
         
-- When you type /play and enter your song name, you will receive **:x: No results found.** **[FIXED]**
-- When playing music, the audio was experiencing significant lag. **[FIXED]**
+- At this moment, there are no bugs.
 **--------------------------------**
 **Changes**
         
-- The MongoDB was modified to fix the music lag bug, but this required the database to be reset, removing your playlists. I assure you this won't happen again , Sorry.
+- The MongoDB was modified to fix the music lag bug, but this required the database to be reset, removing your playlists. I assure you this won't happen again , Sorry. **[OLD CHANGES]**
 **--------------------------------**
 **Do you have a problem with our bot?**
         
