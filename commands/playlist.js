@@ -408,9 +408,9 @@ return interaction.reply({ embeds: [embed] }).catch(e => { })
 
 }
 
-if (stp === "top") {
+if (stp === "Recommended") {
 let playlists = await db?.playlist?.find().catch(e => { })
-if (!playlists?.length > 0) return interaction.reply({ content: 'There are no playlists ❌', ephemeral: true }).catch(e => { })
+if (!playlists?.length > 0) return interaction.reply({ content: 'This command is in development; still, there are not any playlists. ❌', ephemeral: true }).catch(e => { })
 
 let trackl = []
 playlists.map(async data => {
@@ -424,7 +424,7 @@ trackl.push(d)
 
 trackl = trackl.filter(a => a.plays > 0) 
 
-if (!trackl?.length > 0) return interaction.reply({ content: 'There are no playlists ❌', ephemeral: true }).catch(e => { })
+if (!trackl?.length > 0) return interaction.reply({ content: 'This command is in development; still, there are not any playlists. ❌', ephemeral: true }).catch(e => { })
 
 trackl = trackl.sort((a, b) => b.plays - a.plays)
 
