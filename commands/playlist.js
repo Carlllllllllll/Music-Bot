@@ -93,12 +93,7 @@ description: "Browse all your playlists.",
 type: ApplicationCommandOptionType.Subcommand,
 options: []
 },
-{
-name: "top",
-description: "Some recommended playlists",
-type: ApplicationCommandOptionType.Subcommand,
-options: []
-}
+
 
 ],
 permissions: "0x0000000000000800",
