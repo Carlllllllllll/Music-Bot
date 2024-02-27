@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const db = require('../mongoDB');
 
 module.exports = {
-  name: 'recommended playlists',
+  name: 'recommended-playlists',
   description: 'Some playlists will let you dance',
   permissions: '0x0000000000000800',
   options: [],
@@ -13,11 +13,11 @@ module.exports = {
       
 
       const embed = new EmbedBuilder()
-        .setColor('#eff800')
+        .setColor('#0864e0')
         .setAuthor({
           name: 'News',
         })
-        .setDescription(`"Here are some recommended playlists:
+        .setDescription(`Here are some recommended playlists:
 - Playlist name: **Phonks** 🎶
 
 
