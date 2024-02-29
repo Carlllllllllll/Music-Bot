@@ -15,12 +15,6 @@ description: "Give a name for your playlist",
 type: ApplicationCommandOptionType.String,
 required: true
 },
-{
-name: "public",
-description: "Want to make it Public ? True 0r false",
-type: ApplicationCommandOptionType.Boolean,
-required: true
-}
 ]
 },
 {
