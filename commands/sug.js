@@ -1,6 +1,9 @@
 // Import necessary modules
 const { Client, GatewayIntentBits, MessageActionRow, MessageButton } = require('discord.js');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Create a new Discord client
 const client = new Client({
