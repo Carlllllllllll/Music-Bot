@@ -14,8 +14,11 @@ module.exports = {
 
       const embed = new EmbedBuilder()
         .setColor('#FFFF00')
-        .setDescription(`Here is some playlists will let you dance 💃🕺
-- Playlist name: **Phonks** \n Kindly note that this command still in devolpent we will add more playlists soon as well`)
+        .setDescription(`**Here is some playlists will let you dance 💃🕺**
+
+- Playlist name: **Phonks** 
+
+**Kindly note that this command still in devolpent we will add more playlists soon as well**`)
         .setImage('https://media1.tenor.com/m/u6r8fswiki4AAAAC/dancing-minion.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
