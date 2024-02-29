@@ -1,80 +1,122 @@
-// Import necessary modules
-const { Client, GatewayIntentBits, MessageActionRow, MessageButton } = require('discord.js');
-const dotenv = require('dotenv');
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const Suggestion = require('../../Schemas/suggestionSchema');
 
-// Load environment variables from .env file
-dotenv.config();
+const CHANNEL_ID = 'Your_Channel_id';
 
-// Create a new Discord client
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-  ],
-});
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('suggestionbot')
+    .setDescription('Suggest a new feature or improvement for the server')
+    .addStringOption(option =>
+      option.setName('suggestion')
+        .setDescription('Your suggestion')
+        .setRequired(true)
+    ),
+  async execute(interaction) {
+    const suggestion = interaction.options.getString('suggestion');
+    const dmChannel = await interaction.user.createDM();
 
-// Event handler when the bot is ready
-client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag}`);
-});
-
-// Event handler for message creation
-client.on('messageCreate', async (message) => {
-  // Ignore messages from other bots
-  if (message.author.bot) return;
-
-  // Check if the command is invoked
-  if (message.content.startsWith('/suggestions')) {
-    // Your existing code for fetching and processing suggestions
-
-    // Create buttons for each suggestion
-    const buttons = messages.map((suggestion) => {
-      const row = new MessageActionRow()
-        .addComponents(
-          new MessageButton()
-            .setCustomId(`accept_${suggestion.id}`)
-            .setLabel('Accept')
-            .setStyle('SUCCESS'),
-          new MessageButton()
-            .setCustomId(`decline_${suggestion.id}`)
-            .setLabel('Decline')
-            .setStyle('DANGER'),
-        );
-      return { suggestion, row };
+    const suggestionDoc = new Suggestion({
+      guildId: interaction.guild.id,
+      channelId: CHANNEL_ID,
+      userId: interaction.user.id,
+      suggestion,
     });
 
-    // Send the suggestions with buttons
-    await message.reply({
-      content: 'Here are the suggestions:',
-      components: buttons.map((button) => button.row),
+    await suggestionDoc.save();
+
+    const embed = new EmbedBuilder()
+      .setColor("#6eff5f")
+      .setTitle("👍 Suggestion Received!")
+      .setDescription(
+        `Thanks for your suggestion! It has been recorded and will be reviewed by the staff soon.\n\n**Suggestion:** ${suggestion}`
+      )
+      .setFooter({ text: `Suggestion ID: ${suggestionDoc._id}` })
+      .setTimestamp();
+
+    await interaction.reply({ embeds: [embed], ephemeral: true });
+
+    const message = await interaction.client.channels.cache.get(CHANNEL_ID).send({
+      content: `New suggestion from <@${interaction.user.id}>`,
+      embeds: [new EmbedBuilder()
+        .setColor("#ffdd00")
+        .setTitle("📢 New Suggestion")
+        .setDescription(suggestion)
+        .setFooter({ text: `Suggestion ID: ${suggestionDoc._id}` })
+        .setTimestamp(),
+      ],
     });
 
-    // Set up button interaction event
-    client.on('interactionCreate', async (interaction) => {
-      // Your existing code for handling button clicks
-      if (!interaction.isButton()) return;
+    if (message.embeds[0].title === "📢 New Suggestion") {
+      const approveButton = new ButtonBuilder()
+        .setCustomId('approve')
+        .setLabel('Approve')
+        .setStyle(ButtonStyle.Success);
 
-      const [action, suggestionId] = interaction.customId.split('_');
-      const suggestion = buttons.find((btn) => btn.suggestion.id === suggestionId);
+      const denyButton = new ButtonBuilder()
+        .setCustomId('deny')
+        .setLabel('Deny')
+        .setStyle(ButtonStyle.Danger);
 
-      if (action === 'accept') {
-        // Handle the accepted suggestion
-        // Send DM to the user who sent the suggestion
-        const user = await client.users.fetch(suggestion.suggestion.author.id);
-        await user.send('Your suggestion was accepted!');
-      } else if (action === 'decline') {
-        // Handle the declined suggestion
-        // Send DM to the user who sent the suggestion
-        const user = await client.users.fetch(suggestion.suggestion.author.id);
-        await user.send('Your suggestion was declined.');
-      }
+      const actionRow = new ActionRowBuilder()
+        .addComponents(approveButton, denyButton);
 
-      // Disable the button after it is clicked
-      interaction.deferUpdate();
-    });
-  }
-});
+      message.edit({ components: [actionRow] });
 
-// Log in to Discord
-client.login(process.env.TOKEN);
+      const filter = (i) => i.customId === 'approve' || i.customId === 'deny';
+      const collector = message.createMessageComponentCollector({ filter, time: 600000 });
+
+      collector.on('collect', async (interaction) => {
+        if (interaction.user.id !== interaction.user.id) {
+          await interaction.reply({ content: "You cannot interact with this button.", ephemeral: true });
+          return;
+        }
+
+        if (interaction.customId === 'approve') {
+          await Suggestion.findOneAndUpdate({ _id: suggestionDoc._id }, { $set: { status: 'approved' } });
+          const approvedEmbed = new EmbedBuilder()
+            .setColor("#00ff00")
+            .setTitle("👏 Suggestion Approved!")
+            .setDescription(
+              `Your suggestion has been approved and will be considered for implementation.\n\n**Suggestion:** ${suggestion}`
+            )
+            .setFooter({ text: `Suggestion ID: ${suggestionDoc._id}` })
+            .setTimestamp();
+
+          await dmChannel.send({ embeds: [approvedEmbed] });
+        } else if (interaction.customId === "deny") {
+          await Suggestion.findOneAndUpdate(
+            { _id: suggestionDoc._id },
+            { $set: { status: "denied" } }
+          );
+          const deniedEmbed = new EmbedBuilder()
+            .setColor("#ff0000")
+            .setTitle("😢 Suggestion Denied!")
+            .setDescription(`Your suggestion has been denied.\n\n**Suggestion:** ${suggestion}`)
+            .setFooter({ text: `Suggestion ID: ${suggestionDoc._id}` })
+            .setTimestamp();
+          await dmChannel.send({ embeds: [deniedEmbed] });
+        }
+
+        interaction.reply({ content: "Your selection has been recorded.", ephemeral: true });
+        collector.stop();
+      });
+
+      collector.on('end', async () => {
+        const finalStatus = await Suggestion.findOne({ _id: suggestionDoc._id }).select('status').lean();
+        if (finalStatus.status === 'pending') {
+          await Suggestion.findOneAndUpdate({ _id: suggestionDoc._id }, { $set: { status: 'expired' } });
+          const expiredEmbed = new EmbedBuilder()
+            .setColor("#ff8c00")
+            .setTitle("⏰ Suggestion Expired!")
+            .setDescription(
+              `Your suggestion has expired after 10 minutes without enough reactions.\n\n**Suggestion:** ${suggestion}`
+            )
+            .setFooter({ text: `Suggestion ID: ${suggestionDoc._id}` })
+            .setTimestamp();
+          await interaction.followUp({ embeds: [expiredEmbed] });
+        }
+      });
+    }
+  },
+};
