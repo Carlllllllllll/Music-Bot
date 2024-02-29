@@ -19,7 +19,7 @@ module.exports = {
         })
         .setDescription(`**Updates**
         
-- A new command update: the previous name /playlist top has been changed to the new command name /recommended playlists. Sorry for any confusion, but this staff members removed that someone can add his playlist in puplic for privacy.
+- A new command update: the previous name /playlist top has been changed to the new command name /recommended playlists. Sorry for any confusion, but the staff members removed that members can add his playlist in puplic for privacy.
 **--------------------------------**
 **Bugs**
         
