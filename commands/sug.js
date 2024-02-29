@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const Suggestion = require('../../Schemas/suggestionSchema');
 
-const CHANNEL_ID = 'Your_Channel_id';
+const CHANNEL_ID = '1212847030561677342';
 
 module.exports = {
   data: new SlashCommandBuilder()
