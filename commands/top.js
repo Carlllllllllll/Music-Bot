@@ -18,7 +18,7 @@ module.exports = {
 
 - Playlist name: **Phonks** 
 
-**Kindly note that this command still in devolpent we will add more playlists soon as well**`)
+**Kindly note that this command is still in development; we will add more playlists soon.**`)
         .setImage('https://media1.tenor.com/m/u6r8fswiki4AAAAC/dancing-minion.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
