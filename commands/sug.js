@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const Suggestion = require('suggestionSchema');
+const Suggestion = require('../../Schemas/suggestionSchema');
 
-const CHANNEL_ID = '1212847030561677342';
+const CHANNEL_ID = 'Your_Channel_id';
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -120,3 +120,15 @@ module.exports = {
     }
   },
 };
+//////////////////////////////////////////////////////////SCHEMA/////////////////////////////////////////////////////
+const mongoose = require('mongoose');
+
+const suggestSchema = new mongoose.Schema({
+  guildId: { type: String, required: true },
+  channelId: { type: String, required: true },
+  userId: { type: String, required: true },
+  suggestion: { type: String, required: true },
+  status: { type: String, default: 'pending' },
+});
+
+module.exports = mongoose.model('Suggestion', suggestSchema);
