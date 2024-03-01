@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const Suggestion = require('RTX-MUSIC-BOT-v3.5/Schemas/suggestionSchema.js');
-
+const Suggestion = require('./suggestionSchema.js');
 const CHANNEL_ID = '1212847030561677342';
 
 module.exports = {
