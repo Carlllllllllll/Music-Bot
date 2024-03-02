@@ -1,23 +1,5 @@
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
-const { ApplicationCommandOptionType } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const db = require("../mongoDB");
-
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
-const { ButtonStyle } = require('discord.js');
 
 module.exports = {
   name: "help",
@@ -41,7 +23,7 @@ module.exports = {
           { name: '🔄 Autoplay', value: 'Enable or disable autoplay [play random songs ]' },
           { name: '⏩ Seek', value: 'Seek to a specific time in the current song' },
           { name: '⏮️ Previous', value: 'Play the previous song in the queue' },
-          { name: '🔀 Shuffle', value: 'Shuffle the songs in queue' }
+          { name: '🔀 Shuffle', value: 'Shuffle the songs in the queue' }
         )
         .setImage(`https://cdn.discordapp.com/attachments/1004341381784944703/1165201249331855380/RainbowLine.gif?ex=654f37ba&is=653cc2ba&hm=648a2e070fab36155f4171962e9c3bcef94857aca3987a181634837231500177&`); 
 
@@ -53,10 +35,11 @@ module.exports = {
           { name: '🗑️ Clear', value: 'Clear the song queue of this server' },
           { name: '⏱️ Time', value: 'Display the current song playback time' },
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
-           { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
+          { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
           { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
         ) 
-       .setImage('https://cdn.discordapp.com/attachments/1150827819547504741/1168917372267151370/standard.gif?ex=65538222&is=65410d22&hm=b4994392f44679da41fc9304eb69deaa3769e136057556deec0db69ae8d33a97&')
+       .setImage('https://cdn.discordapp.com/attachments/1213493381393682483/1213495539333599252/standard_3.gif?ex=65f5aeca&is=65e339ca&hm=4e984c5ff39ad515d4b9b11ab8eaa1d8c2d5a006130b8ba9159b5a0cf417e104&');
+
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
         .setURL('https://youtube.com/@ZyroniX_7?si=oOA69r-sSFj8A4jD')
@@ -67,13 +50,8 @@ module.exports = {
         .setURL('https://discord.com/invite/7U6yTNf8Vu')
         .setStyle(ButtonStyle.Link);
 
-      const button3 = new ButtonBuilder()
-        .setLabel('💕')
-        .setURL('')
-        .setStyle(ButtonStyle.Link);
-
       const row = new ActionRowBuilder()
-        .addComponents(button1, button2, button3);
+        .addComponents(button1, button2);
 
       interaction.reply({
         embeds: [musicCommandsEmbed, basicCommandsEmbed],
@@ -84,19 +62,3 @@ module.exports = {
     }
   },
 };
-
-/*
-
-  ██████╗░████████╗██╗░░██╗           
-  ██╔══██╗╚══██╔══╝╚██╗██╔╝          
-  ██████╔╝░░░██║░░░░╚███╔╝░          
-  ██╔══██╗░░░██║░░░░██╔██╗░          
-  ██║░░██║░░░██║░░░██╔╝╚██╗          
-  ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
-
-   
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
-   ## FOR HELP CONTACT ME ON DISCORD
-   ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
-   ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-*/
