@@ -8,7 +8,7 @@ module.exports = async (client, queue, song) => {
       const embed = new EmbedBuilder()
       .setAuthor({
         name: 'Currently playing a Track',
-        iconURL: 'https://cdn.discordapp.com/attachments/1189438802205343824/1210865677330681886/standard.gif?ex=65f5580a&is=65e2e30a&hm=18f64811d1e2144f17f66cabb7f49717d13b65771099aa8951253203fe486c86&', 
+        iconURL: 'https://cdn.discordapp.com/attachments/1203337044244570162/1213444893830287360/standard_3.gif?ex=65f57f9f&is=65e30a9f&hm=77999f656b307a4d59895549d39bbbf089d11493321b7f9bc4ddd6efd577595a&', 
         url: 'https://discord.com/invite/7U6yTNf8Vu'
     })
     .setDescription(`\n ‎ \n▶️ **Details :** **${song?.name}**\n▶️ **Enjoy the Ultimate Music Experience. ** \n▶️ **If link breaks playback try to give query.**`)
