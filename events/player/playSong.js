@@ -14,7 +14,7 @@ module.exports = async (client, queue, song) => {
     .setDescription(`\n ‎ \n▶️ **Details :** **${song?.name}**\n▶️ **Enjoy the Ultimate Music Experience. ** \n▶️ **If link breaks playback try to give query.**`)
 .setImage(queue.songs[0].thumbnail)
     .setColor('#FF0000')
-    .setFooter({ text: 'Dev By ZyX [/help]' });
+    .setFooter({ text: 'Dev By ZyX' });
      
       queue?.textChannel?.send({ embeds: [embed] }).catch(e => { });
     }
