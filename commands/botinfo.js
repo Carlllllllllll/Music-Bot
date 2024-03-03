@@ -12,7 +12,7 @@ module.exports = {
       const supportServerLink = 'https://discord.gg/XuvB8URUez';
 
       const embed = new EmbedBuilder()
-        .setColor('#ffff00')
+        .setColor('#11e008')
         .setAuthor({
           name: 'Bot Info',
         })
