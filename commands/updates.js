@@ -27,11 +27,7 @@ module.exports = {
 **--------------------------------**
 **Changes**
         
-- At this moment, there are no changes.
-**--------------------------------**
-**Do you have a problem with our bot?**
-        
-- No worries! Join our support server and type /report our support team is always online. \n Support Server: [Join Here](${discordServerLink})`)
+- At this moment, there are no changes.`)
         .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
