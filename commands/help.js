@@ -32,7 +32,7 @@ module.exports = {
           { name: 'ℹ️ Bot Info ', value: 'To know more info about the bot' },
           { name: '💡 Help us ', value: 'Help our team' },
           { name: '🔧 Updates ', value: 'To know about the bot updates' },
-          { name: '🤖 Bot Status ', value: 'To know the bot status' },
+          { name: '🤖 Support ', value: 'To get our support links' },
           { name: '🎵 Recommended Playlists ', value: 'Some playlists will let you dance' },
           { name: '👑 About Owner', value: 'Hello, I am Carl. I am here to help 24/7. If there are any bugs or if you have any questions, do not hesitate to DM me. For more information about me, type /about-owner in any channel.' }
         )
