@@ -32,7 +32,7 @@ module.exports = {
         .setAuthor({
           name: 'About Owner',
         })
-        .setDescription(`__**About me**__:\n\n Hello, I'm Carl, an Egyptian Discord bot developer and web developer. I specialize in building various web server applications, and I'm also a gamer who loves Naruto Uzumaki. If you need assistance, feel free to contact me on Discord , type /support to get out support links`)
+        .setDescription(`__**About me**__:\n\n Hello, I'm Carl, an Egyptian Discord bot developer and web developer. I specialize in building various web server applications, and I'm also a gamer who loves Naruto Uzumaki. If you need assistance, feel free to contact me on Discord , type /support to get our support links.`)
         .setImage('https://media1.tenor.com/m/7GyHsInT8uoAAAAC/naruto.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
