@@ -16,8 +16,16 @@ module.exports = {
         .setAuthor({
           name: 'Bot Info',
         })
-       .setDescription(`Hello! 🎵 I am Music Bot, and I have a deep love for music. Carl brought me to life, but as this is my first version, I might have a few bugs and quirks. No worries, though Carl is here to help! 🤖 ✨ Join our support server for swift assistance and a musical journey together! 🎵 🚀 \nSupport Server: [Join Here](${supportServerLink})`)
-       .setImage('https://media1.tenor.com/m/WI5z7d934jIAAAAC/naruto-smile.gif');
+       .setDescription(`Bot Developers: Carl (Owner)
+Bot Version: **1.2.0**
+Bot System: **Music System**
+This bot was created on **01/16/2024**.
+Bot Status: Online since **03/03/2024**, since the last reboot.
+Commands Count: **30**
+Commands Status : **Wokring**
+`)
+        
+       .setTimestamp();
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
       console.error(e);
