@@ -13,9 +13,9 @@ module.exports = {
       const discordProfileLink = 'https://discordapp.com/users/1126336222206365696';
 
       const embed = new EmbedBuilder()
-        .setColor('#00ff00')
+        .setColor('#ffffff')
         .setAuthor({
-          name: 'Supportr',
+          name: 'Support',
         })
         .setDescription(`Need help? No worries, we are here.\n
         Support Server: [Join Here](${discordServerLink})\n
