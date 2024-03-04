@@ -17,7 +17,7 @@ module.exports = {
         .setAuthor({
           name: 'Support',
         })
-        .setDescription(`Need help? No worries, we are here.\n
+        .setDescription(`\nNeed help? No worries, we are here.\n
 Support Server: [Join Here](${discordServerLink})\n
 Developer Profile: [Carl (Owner)](${discordProfileLink})`)
         .setImage('https://media1.tenor.com/m/MS32XqsnXAkAAAAC/friends-health.gif');
