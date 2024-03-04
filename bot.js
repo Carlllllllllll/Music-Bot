@@ -54,7 +54,7 @@ fs.readdir("./events", (_err, files) => {
     if (!file.endsWith(".js")) return;
     const event = require(`./events/${file}`);
     let eventName = file.split(".")[0]; 
-    client.on(eventName, event.bind(null, client));
+    client.on(eventName, (...args) => event(client, ...args));
     delete require.cache[require.resolve(`./events/${file}`)];
   });
 });
