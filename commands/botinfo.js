@@ -19,8 +19,8 @@ module.exports = {
        .setDescription(`Bot Developers: **Carl (Owner)**
 Bot Version: **1.2.0**
 Bot System: **Music System**
-This bot was created on **01/16/2024**.
-Bot Status: Online since **03/03/2024** **Since the last reboot**.
+This bot was created on **01/26/2024**
+Bot Status: Online since **03/03/2024** **Since the last reboot**
 Commands Count: **30**
 Commands Status : **Working**
 `)
