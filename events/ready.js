@@ -32,7 +32,7 @@ setInterval(() => client.user.setActivity({
   type: ActivityType.Watching }), 10000);
   setInterval(() => client.user.setActivity({ 
   name: `Music 🎶`, 
-  type: ActivityType.Playing }), 10000);
+  type: ActivityType.Playing }), 1000);
   setInterval(() => {
   const serverCount = client.guilds.cache.size;
   const memberCount = client.users.cache.size;
@@ -41,7 +41,7 @@ setInterval(() => client.user.setActivity({
     name: `Servers: ${serverCount} | Members: ${memberCount}`,
     type: ActivityType.Watching
   });
-}, 10000);
+}, 10);
 
 
 
