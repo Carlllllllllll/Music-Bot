@@ -29,10 +29,7 @@ Feel free to explore all the commands and gather more information about this bot
 
 Warm regards,
 
-Carl (Owner) 
-
-\nBot Invite link: [Press Here](${BotInviteLink}) \nSupport Server: [Join Here](${supportServerLink})`)
-       .setImage('https://media1.tenor.com/m/KxgaXJqz8agAAAAC/naruto-naruto-shippuden.gif');
+Carl (Owner) `)
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
       console.error(e);
