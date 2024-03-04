@@ -25,7 +25,7 @@ setInterval(() => client.user.setActivity({
   name: `Music 🎶`, 
   type: ActivityType.Listening }), 10000);
   setInterval(() => client.user.setActivity({ 
-  name: `To Your Vibe. 🎶`, 
+  name: `To Your Vibe 🎶`, 
   type: ActivityType.Listening }), 10000);
 
 client.errorLog = config.errorLog
