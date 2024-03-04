@@ -24,6 +24,16 @@ console.log('\x1b[32m%s\x1b[0m', `|    🌼 Logged in as ${client.user.username}
 setInterval(() => client.user.setActivity({ 
   name: `Music 🎶`, 
   type: ActivityType.Listening }), 10000);
+  setInterval(() => client.user.setActivity({ 
+  name: `Your Vibe 🎶`, 
+  type: ActivityType.Listening }), 10000);
+    setInterval(() => client.user.setActivity({ 
+  name: `Music 🎶`, 
+  type: ActivityType.Playing }), 10000);
+      setInterval(() => client.user.setActivity({ 
+  name: `Your Queue 🎶`, 
+  type: ActivityType.Watching }), 10000);
+
 
 
 
