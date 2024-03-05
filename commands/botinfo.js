@@ -22,14 +22,14 @@ module.exports = {
         .setAuthor({
           name: 'Bot Info',
         })
-        .setDescription(`Bot Developers: \n```Carl **Owner**```
-Bot Version: \n```v1.2.0```
-Bot System: \n```Music System```
-This bot was created on : \n```${botCreationDate.toLocaleDateString()}**```
-Bot Status: \n```Working``` 
-Bot Uptime  \n```02/20/2024 That means that the bot has been online for **${formatUptime(uptimeSinceLastReboot)}```
-Commands Count \n```30 Cmds```
-Commands Status  \n``Working``
+        .setDescription(`Bot Developers: \n\`\`\`Carl **Owner**\`\`\`
+Bot Version: \n\`\`\`v1.2.0\`\`\`
+Bot System: \n\`\`\`Music System\`\`\`
+This bot was created on : \n\`\`\`${botCreationDate.toLocaleDateString()}\`\`\`
+Bot Status: \n\`\`\`Working\`\`\` 
+Bot Uptime: \n\`\`\`02/20/2024 That means that the bot has been online for **${formatUptime(uptimeSinceLastReboot)}\`\`\`
+Commands Count: \n\`\`\`30 Cmds\`\`\`
+Commands Status: \n\`\`\`Working\`\`\`
 `)
         .setTimestamp();
       interaction.reply({ embeds: [embed] }).catch(() => {});
