@@ -32,7 +32,7 @@ module.exports = {
 **Commands Count** \n\`\`\`30 Commands\`\`\`
 **Commands Status**: \n\`\`\`Working\`\`\`
 `)
-        .setFooter('🎶 Thank you for using our Bot 🎶')
+        .setFooter('https://cdn.discordapp.com/attachments/1191025111772446784/1214625120866537522/IMG_1812.png?ex=65f9cacb&is=65e755cb&hm=57fe49cdbd289d4a8e4fd60cf9a6e217c1735ed5444f5660962cb884bf2ee4f4& 🎶 Thank you for using our Bot 🎶')
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
       console.error(e);
