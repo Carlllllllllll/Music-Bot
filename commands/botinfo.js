@@ -12,7 +12,7 @@ module.exports = {
       const supportServerLink = 'https://discord.gg/XuvB8URUez';
 
       const botCreationDate = new Date('01/26/2024');
-      const lastRebootTime = new Date('03/03/2024');
+      const lastRebootTime = new Date('02/20/2024');
 
       const currentTime = new Date();
       const uptimeSinceLastReboot = currentTime - lastRebootTime;
