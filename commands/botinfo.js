@@ -22,7 +22,7 @@ module.exports = {
         .setAuthor({
           name: 'Bot Info',
         })
-        .setDescription(`Bot Developers: \n```Carl (Owner)```
+        .setDescription(`Bot Developers: \n```Carl **Owner**```
 Bot Version: \n```v1.2.0```
 Bot System: \n```Music System```
 This bot was created on : \n```${botCreationDate.toLocaleDateString()}**```
