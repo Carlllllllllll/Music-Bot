@@ -22,14 +22,15 @@ module.exports = {
         .setAuthor({
           name: 'Bot Info',
         })
-        .setDescription(`Bot Developers: \n\`\`\`Carl **Owner**\`\`\`
-Bot Version: \n\`\`\`v1.2.0\`\`\`
-Bot System: \n\`\`\`Music System\`\`\`
-This bot was created on : \n\`\`\`${botCreationDate.toLocaleDateString()}\`\`\`
-Bot Status: \n\`\`\`Working\`\`\` 
-Bot Uptime: \n\`\`\`02/20/2024 That means that the bot has been online for **${formatUptime(uptimeSinceLastReboot)}\`\`\`
-Commands Count: \n\`\`\`30 Cmds\`\`\`
-Commands Status: \n\`\`\`Working\`\`\`
+        .setDescription(`***📄 Information 📄***
+**Bot Developers** \n\`\`\`Carl\`\`\`
+**Bot Version** \n\`\`\`v1.2.0\`\`\`
+**Bot System** \n\`\`\`Music System\`\`\`
+**This bot was created on (MM/DD/YYYY)**  \n\`\`\`${formatCreationTime(botCreationDate)}\`\`\`
+**Bot Status** \n\`\`\`Working\`\`\` 
+**Bot Uptime** \n\`\`\`${formatUptime(uptimeSinceLastReboot)}\`\`\`
+**Commands Count** \n\`\`\`30 Commands\`\`\`
+**Commands Status**: \n\`\`\`Working\`\`\`
 `)
         .setTimestamp();
       interaction.reply({ embeds: [embed] }).catch(() => {});
@@ -46,4 +47,24 @@ function formatUptime(uptime) {
   const days = Math.floor(uptime / (1000 * 60 * 60 * 24));
 
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+function formatCreationTime(creationTime) {
+  const currentTime = new Date();
+  const timeDifference = currentTime - creationTime;
+
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  let formattedTime = '';
+
+  if (days > 0) {
+    formattedTime += `${days} days `;
+  }
+
+  if (hours > 0) {
+    formattedTime += `${hours} hours`;
+  }
+
+  return formattedTime.trim() || 'Less than an hour';
 }
