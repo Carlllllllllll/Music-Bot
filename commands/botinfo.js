@@ -26,7 +26,8 @@ module.exports = {
 Bot Version: **1.2.0**
 Bot System: **Music System**
 This bot was created on **${botCreationDate.toLocaleDateString()}**
-Bot Status: Online since the last reboot (**${formatUptime(uptimeSinceLastReboot)}**)
+Bot Status: **Working** 
+Bot Uptime : 02/20/2024 That means that the bot has been online for **${formatUptime(uptimeSinceLastReboot)}**
 Commands Count: **30**
 Commands Status : **Working**
 `)
