@@ -32,7 +32,6 @@ module.exports = {
 **Commands Count** \n\`\`\`30 Commands\`\`\`
 **Commands Status**: \n\`\`\`Working\`\`\`
 `)
-        .setFooter('🎶 Thank you for using our Bot')
 
       interaction.reply({ embeds: [embed] }).catch(() => {});
     } catch (e) {
