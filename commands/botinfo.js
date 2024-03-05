@@ -26,7 +26,7 @@ module.exports = {
 **Bot Developers** \n\`\`\`Carl\`\`\`
 **Bot Version** \n\`\`\`v1.2.0\`\`\`
 **Bot System** \n\`\`\`Music System\`\`\`
-**This bot was created on (MM/DD/YYYY)**  \n\`\`\`${formatCreationTime(botCreationDate)}\`\`\`
+**This bot was created on (MM/DD/YYYY)**  \n\`\`\`01/26/2024 , ${formatCreationTime(botCreationDate)}\`\`\`
 **Bot Status** \n\`\`\`Working\`\`\` 
 **Bot Uptime** \n\`\`\`${formatUptime(uptimeSinceLastReboot)}\`\`\`
 **Commands Count** \n\`\`\`30 Commands\`\`\`
