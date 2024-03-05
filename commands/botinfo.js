@@ -20,9 +20,9 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#11e008')
         .setAuthor({
-          name: 'Bot Info',
+          name: '📄 Information 📄',
         })
-        .setDescription(`***📄 Information 📄***
+        .setDescription(`
 **Bot Developers** \n\`\`\`Carl\`\`\`
 **Bot Version** \n\`\`\`v1.2.0\`\`\`
 **Bot System** \n\`\`\`Music System\`\`\`
