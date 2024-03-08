@@ -19,7 +19,7 @@ module.exports = {
         })
         .setDescription(`**Updates**
         
-- A new command update: the previous name /playlist top has been changed to the new command name /recommended playlists. Sorry for any confusion, but the staff members removed that members can add his playlist in puplic for privacy.
+- New version : 1.7.0!
 **--------------------------------**
 **Bugs**
         
@@ -27,7 +27,7 @@ module.exports = {
 **--------------------------------**
 **Changes**
         
-- At this moment, there are no changes.`)
+- Commands reply.`)
         .setImage('https://media1.tenor.com/m/E7HT0L0wlAgAAAAC/update-beat.gif');
         
       interaction.reply({ embeds: [embed] }).catch(() => {});
