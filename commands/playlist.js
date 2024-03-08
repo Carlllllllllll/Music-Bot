@@ -97,7 +97,7 @@ module.exports = {
       if (stp === "create") {
         let name = interaction.options.getString('name')
         let public = interaction.options.getBoolean('public')
-        if (!name) return interaction.reply({ content: '⚠️ Enter Album name to create!', ephemeral: true }).catch(e => { })
+        if (!name) return interaction.reply({ content: '⚠️ Please enter the album name to create it!', ephemeral: true }).catch(e => { })
 
         const userplaylist = await db.playlist.findOne({ userID: interaction.user.id })
 
@@ -105,17 +105,17 @@ module.exports = {
         if (playlist?.length > 0) {
           for (let i = 0; i < playlist.length; i++) {
             if (playlist[i]?.playlist?.filter(p => p.name === name)?.length > 0) {
-              return interaction.reply({ content: '⚠️ Album already Exitst!', ephemeral: true }).catch(e => { })
+              return interaction.reply({ content: '⚠️ Album already exists.', ephemeral: true }).catch(e => { })
             }
           }
         }
 
-        if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Exceeded Album limit', ephemeral: true }).catch(e => { })
+        if (userplaylist?.playlist?.length >= client.config.playlistSettings.maxPlaylist) return interaction.reply({ content: '🚫 Album limit reached.', ephemeral: true }).catch(e => { })
 
         const creatingAlbumEmbed = new EmbedBuilder()
           .setColor('#0099ff')
           .setTitle('Creating Album')
-          .setDescription(`Hey <@${interaction.member.id}>, your album is being created. Rock on! 🎸`)
+          .setDescription(`Hey <@${interaction.member.id}>, Creating album, please wait 🎸`)
           .setTimestamp();
 
         // Replying with both content and embed
@@ -146,7 +146,7 @@ module.exports = {
             iconURL: 'https://cdn.discordapp.com/attachments/1213421081226903552/1215554404527116288/7762-verified-blue.gif',
             
           })
-  .setDescription(`Hey <@${interaction.member.id}>, your album has been created successfully! 🎉`)
+  .setDescription(`Hey <@${interaction.member.id}>, your album has been created successfully! Enojy! 🎉`)
   .setTimestamp();
 
 // Editing the reply with both content and embed
@@ -160,10 +160,10 @@ await interaction.editReply({
 
       if (stp === "delete") {
         let name = interaction.options.getString('name')
-        if (!name) return interaction.reply({ content: '⚠️ Enter album name to create!', ephemeral: true }).catch(e => { })
+        if (!name) return interaction.reply({ content: '⚠️ You need to enter album name to delete it!!', ephemeral: true }).catch(e => { })
 
         const playlist = await db.playlist.findOne({ userID: interaction.user.id }).catch(e => { })
-        if (!playlist?.playlist?.filter(p => p.name === name).length > 0) return interaction.reply({ content: '❌ No album Found', ephemeral: true }).catch(e => { })
+        if (!playlist?.playlist?.filter(p => p.name === name).length > 0) return interaction.reply({ content: '❌ No album found with that name', ephemeral: true }).catch(e => { })
 
         const music_filter = playlist?.musics?.filter(m => m.playlist_name === name)
         if (music_filter?.length > 0){
@@ -179,7 +179,7 @@ await interaction.editReply({
        const deletingAlbumEmbed = new EmbedBuilder()
           .setColor('#0099ff')
           .setTitle('Deleting Album')
-          .setDescription(`Hey <@${interaction.member.id}>, your album is being Deleted 🎸`)
+          .setDescription(`Hey <@${interaction.member.id}>, your album is being deleted , please wait 🎸`)
           .setTimestamp();
 
         // Replying with both content and embed
@@ -219,15 +219,15 @@ await interaction.editReply({
 
       if (stp === "add-music") {
         let name = interaction.options.getString('name')
-        if (!name) return interaction.reply({ content: '⚠️ Enter song name to search', ephemeral: true }).catch(e => { })
+        if (!name) return interaction.reply({ content: '⚠️ Please enter the song name to initiate the search.', ephemeral: true }).catch(e => { })
         let playlist_name = interaction.options.getString('playlist-name')
         if (!playlist_name) return interaction.reply({ content: '⚠️ Enter album name to add songs', ephemeral: true }).catch(e => { })
 
         const playlist = await db.playlist.findOne({ userID: interaction.user.id }).catch(e => { })
-        if (!playlist?.playlist?.filter(p => p.name === playlist_name).length > 0) return interaction.reply({ content: 'Your Song Added!', ephemeral: true }).catch(e => { })
+        if (!playlist?.playlist?.filter(p => p.name === playlist_name).length > 0) return interaction.reply({ content: 'Please wait...', ephemeral: true }).catch(e => { })
 
         let max_music = client.config.playlistSettings.maxMusic
-        if (playlist?.musics?.filter(m => m.playlist_name === playlist_name).length > max_music) return interaction.reply({ content: "Reached Album songs limit".replace("{max_music}", max_music), ephemeral: true }).catch(e => { })
+        if (playlist?.musics?.filter(m => m.playlist_name === playlist_name).length > max_music) return interaction.reply({ content: "Reached Album songs limit!".replace("{max_music}", max_music), ephemeral: true }).catch(e => { })
         let res 
         try{
           res = await client.player.search(name, {
