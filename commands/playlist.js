@@ -146,7 +146,7 @@ module.exports = {
             iconURL: 'https://cdn.discordapp.com/attachments/1213421081226903552/1215554404527116288/7762-verified-blue.gif',
             
           })
-  .setDescription(`Hey <@${interaction.member.id}>, your album has been created successfully! Enojy! 🎉`)
+  .setDescription(`Hey <@${interaction.member.id}>, your album has been created successfully! Enjoy! 🎉`)
   .setTimestamp();
 
 // Editing the reply with both content and embed
@@ -466,7 +466,7 @@ await interaction.editReply({
 
             const embed = new EmbedBuilder()
               .setTitle(`${name}`)
-              .setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+              .setThumbnail(interaction.guild?.iconURL({ size: 2048, dynamic: true }) || '')
               .setColor(client.config.embedColor)
               .setDescription('Timeout Use command again!'.replace("{name}", name))
             return interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { })
@@ -548,7 +548,7 @@ await interaction.editReply({
               name: 'Top Albums',
               iconURL: 'https://cdn.discordapp.com/attachments/1213421081226903552/1213422313035407360/8218-alert.gif'
             })
-            .setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+            .setThumbnail(interaction.guild?.iconURL({ size: 2048, dynamic: true }) || '')
             .setColor(client.config.embedColor)
             .setDescription(`\n${current.map(data =>
               `\n**${sayı++} |** \`${data.name}\` By. \`${data.authorTag}\` - **${data.plays}** "plays" (<t:${Math.floor(data.createdTime / 1000) }:R>)`
@@ -626,7 +626,7 @@ await interaction.editReply({
           name: 'Top Albums',
           iconURL: 'https://cdn.discordapp.com/attachments/1213421081226903552/1213422313035407360/8218-alert.gif'
         })
-              .setThumbnail(interaction.user.displayAvatarURL({ size: 2048, dynamic: true }))
+              .setThumbnail(interaction.guild?.iconURL({ size: 2048, dynamic: true }) || '')
               .setColor(client.config.embedColor)
               .setDescription('TimeOut!')
               
