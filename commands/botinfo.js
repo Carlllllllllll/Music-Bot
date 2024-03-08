@@ -24,7 +24,7 @@ module.exports = {
         })
         .setDescription(`
 **Bot Developers** \n\`\`\`Carl\`\`\`
-**Bot Version** \n\`\`\`v1.2.0\`\`\`
+**Bot Version** \n\`\`\`v1.7.0\`\`\`
 **Bot System** \n\`\`\`Music System\`\`\`
 **This bot was created on (MM/DD/YYYY)**  \n\`\`\`01/26/2024 , ${formatCreationTime(botCreationDate)}\`\`\`
 **Bot Status** \n\`\`\`Working\`\`\` 
