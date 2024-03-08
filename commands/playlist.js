@@ -16,7 +16,12 @@ module.exports = {
           type: ApplicationCommandOptionType.String,
           required: true
         },
-      
+           {
+          name: "public",
+          description: "Want to make it Public ? True 0r false",
+          type: ApplicationCommandOptionType.Boolean,
+          required: true
+        }
       ]
     },
     {
@@ -89,6 +94,12 @@ module.exports = {
       type: ApplicationCommandOptionType.Subcommand,
       options: []
     },
+        {
+      name: "top",
+      description: "Most popular Albums.",
+      type: ApplicationCommandOptionType.Subcommand,
+      options: []
+    }
   ],
   permissions: "0x0000000000000800",
   run: async (client, interaction) => {
