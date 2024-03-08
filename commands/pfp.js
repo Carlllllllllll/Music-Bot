@@ -13,7 +13,7 @@ module.exports = {
       }
 
 
-      const newPfpUrl = "https://www.bing.com/ck/a?!&&p=826d36dc8925ff66JmltdHM9MTcwOTg1NjAwMCZpZ3VpZD0wYzc4ZDU3NC0yYmEzLTZmN2UtMDg0YS1jMTY4MmE3ZTZlYjMmaW5zaWQ9NTU1MQ&ptn=3&ver=2&hsh=3&fclid=0c78d574-2ba3-6f7e-084a-c1682a7e6eb3&u=a1L2ltYWdlcy9zZWFyY2g_cT1NdXNpYyUyMGxvZ28lMjBnaWYmRk9STT1JUUZSQkEmaWQ9QTA4RTk1NUI5MERCOTFDNjg3QkZFQ0MxMDczMzRFQTcyRjVEOTdGNA&ntb=1";
+      const newPfpUrl = "https://th.bing.com/th?id=OIP.M6Rvcn2-eQ1DZhah9W_OnAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2";
 
 
       await client.user.setAvatar(newPfpUrl);
