@@ -25,7 +25,7 @@ module.exports = {
       options: [
         {
           name: "name",
-          description: "Write your playlist name.",
+          description: "Write the name of the playlist you want to create.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -61,8 +61,11 @@ module.exports = {
 
             const music_filter = playlist[i]?.musics?.filter(m => m.playlist_name === playlistw)
             if (!music_filter?.length > 0) return interaction.reply({ content: `No music with Name`, ephemeral: true }).catch(e => { })
-
-            interaction.reply({ content: `Loading playlist... ✅` }).catch(e => { })
+                const listembed = new EmbedBuilder()
+                .setTitle('Loading Your Album')
+                .setColor('#FF0000')
+                .setDescription('**🎸 Get ready for a musical journey!**');
+            interaction.reply({ content : '', embeds: [listembed] }).catch(e => { })
 
             let songs = []
             music_filter.map(m => songs.push(m.music_url))
@@ -73,8 +76,18 @@ module.exports = {
                 properties: { name: playlistw, source: "custom" },
                 parallel: true
               });
-
-              await interaction.editReply({ content: `Added Songs To Queue!`.replace("{interaction.member.id}", interaction.member.id).replace("{music_filter.length}", music_filter.length) }).catch(e => { })
+              const qembed = new EmbedBuilder()
+        .setAuthor({
+        name: 'Added Album Songs to Queue',
+        iconURL: 'https://cdn.discordapp.com/attachments/1156866389819281418/1157218651179597884/1213-verified.gif', 
+        url: 'https://discord.gg/FUEHs7RCqz'
+    })
+        .setColor('#14bdff')
+        .setFooter({ text: 'Use /queue for more Information' });
+           
+              await interaction.editReply({ content: '',embeds: [qembed] }).catch(e => {
+                  console.error('Error  reply:', e);
+                });
 
               try {
                 await client.player.play(interaction.member.voice.channel, playl, {
@@ -125,7 +138,6 @@ module.exports = {
   }
 
   const embed = new EmbedBuilder()
-    .setColor('#3498db')
     .setColor('#FF0000')
     .setDescription('**🎸 Get ready for a musical journey!**');
 
@@ -139,7 +151,6 @@ module.exports = {
     });
   } catch (e) {
     const errorEmbed = new EmbedBuilder()
-      .setColor('#e74c3c')
       .setColor('#FF0000')
       .setDescription('❌ No results found!!');
 
