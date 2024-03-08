@@ -13,7 +13,7 @@ module.exports = {
       }
 
       
-      const newPfpUrl = "";
+      const newPfpUrl = "https://www.bing.com/th/id/OGC.33a46f727dbe790d436616a1f56fce9c?pid=1.7&rurl=https%3a%2f%2fc.tenor.com%2flhlDEs5fNNEAAAAC%2fmusic-beat.gif&ehk=Q6VQ%2fljCF8E5c4SoMKS7WO0JVmawKSZeWjZRvoKZ7CY%3d";
 
      
       await client.user.setAvatar(newPfpUrl);
