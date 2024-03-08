@@ -14,7 +14,7 @@ module.exports = async (client, queue, song) => {
     .setDescription(`\n ‎ \n▶️ **Details :** **${song?.name}**\n▶️ **Enjoy the Ultimate Music Experience. ** \n▶️ **If link breaks playback try to give query.**`)
 .setImage(queue.songs[0].thumbnail)
     .setColor('#FF0000')
-    .setFooter({ text: 'More info - Use /help command │ Made By 𝑪𝒂𝒓𝒍 ⚡' });
+    .setFooter({ text: 'More info - Use /help command' });
      
       queue?.textChannel?.send({ embeds: [embed] }).catch(e => { });
     }
