@@ -40,9 +40,6 @@ setInterval(() => client.user.setActivity({
   });
 }, 4000);
 
-
-
-
 client.errorLog = config.errorLog
 } else {
 console.log('\x1b[36m%s\x1b[0m', `|    🍔 Error MongoDB!`)
