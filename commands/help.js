@@ -45,7 +45,8 @@ module.exports = {
           { name: '🗑️ Clear', value: 'Clear the song queue of this server' },
           { name: '⏱️ Time', value: 'Display the current song playback time' },
           { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
-          { name: '🎵 Now Playing', value: 'Display the currently playing song' }
+          { name: '🎵 Now Playing', value: 'Display the currently playing song' },
+         {  name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
         )
         .setImage(`https://media1.tenor.com/m/ZDOGDzRbv08AAAAd/naruto-pain.gif`);
 
