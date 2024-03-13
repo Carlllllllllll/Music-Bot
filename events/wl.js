@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.Guilds] });
+const { Client, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.Guilds] });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
