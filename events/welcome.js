@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const config = require('./config.js');
 
@@ -8,11 +9,25 @@ const client = new Client({
     ]
 });
 
+// Load the greetings data from the JSON file
+let greetingsData = {};
+try {
+    greetingsData = require('./greetings.json');
+} catch (error) {
+    console.error('Error loading greetings data:', error);
+}
+
 client.once('ready', () => {
     console.log('Bot is ready.');
 });
 
 client.on('guildCreate', async (guild) => {
+    // Check if the guild has already been greeted
+    if (greetingsData[guild.id]) {
+        console.log(`Bot has already greeted ${guild.name}.`);
+        return;
+    }
+
     // Get the default text channel of the guild
     const defaultChannel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'));
     
@@ -28,6 +43,10 @@ client.on('guildCreate', async (guild) => {
                 .setFooter('Your bot name', client.user.displayAvatarURL());
             
             await defaultChannel.send({ embeds: [embed] });
+
+            // Add the guild to the greetings data to indicate it has been greeted
+            greetingsData[guild.id] = true;
+            fs.writeFileSync('./greetings.json', JSON.stringify(greetingsData, null, 2));
         } catch (error) {
             console.error('Error sending message:', error);
         }
