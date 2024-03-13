@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({ intents: ['guilds'] });
+const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.Guilds] });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -14,3 +14,4 @@ client.on('guildCreate', guild => {
   channel.send(message);
 });
 
+// client.login('your-bot-token-goes-here');
