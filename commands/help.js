@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const db = require('../mongoDB');
+const db = require('../mongodb');
 
 module.exports = {
   name: 'help',
@@ -25,11 +25,11 @@ module.exports = {
         })
         .setDescription(`
 ***PLEASE NOTE THAT THIS BOT DOESN'T HAVE ANY COMMANDS, ONLY A ? PREFIX. THE OWNER MADE THIS COMMAND TO HELP YOU ENJOY OUR LOVELY BOT WITHOUT COMPLICATIONS.***\n
-**▶️  Basic Commands** \n\`\`avatar, support, userinfo\`\`\`\`
-**▶️  Fun Commands** \n\`\`\`ascii, joke, roll\`\`\`
-**▶️ Anime Commands** \n\`\`\` blush, cuddle, dance, slap, bonk, bully, hug, confused, kiss, pat, happy, smile,yes, highfive, wink, wave, thinking, sad, cry, stare, bored, scream, nervous, kill\`\`\`
-**▶️  Image Commands** \n\`\`\`cat, dog, panda\`\`\`
-**▶️  Utility Commands** \n\`\`\`kick, ban, serverinfo, clear, uptime\`\`\` 
+**▶️ Basic Commands** \n\`\`avatar, support, userinfo\`\`\n
+**▶️ Fun Commands** \n\`\`ascii, joke, roll\`\`\n
+**▶️ Anime Commands** \n\`\`blush, cuddle, dance, slap, bonk, bully, hug, confused, kiss, pat, happy, smile, yes, highfive, wink, wave, thinking, sad, cry, stare, bored, scream, nervous, kill\`\`\n
+**▶️ Image Commands** \n\`\`cat, dog, panda\`\`\n
+**▶️ Utility Commands** \n\`\`kick, ban, serverinfo, clear, uptime\`\`
 `)
 
       interaction.reply({ embeds: [embed] }).catch(() => {});
