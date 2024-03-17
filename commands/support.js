@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const db = require("../mongodb");
+const db = require("../mongoDB");
 module.exports = {
     name: 'support',
     description: 'support server of this Bot',
