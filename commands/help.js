@@ -24,7 +24,8 @@ module.exports = {
           iconURL: 'https://cdn.discordapp.com/attachments/1175487983915376662/1175667506791325706/communication.png?ex=656c10b0&is=65599bb0&hm=e378f1b355a2401bcab504b08a0766001d6b7c090c91ce0a7a7a87c868feb955&',
         })
         .setDescription(`
-***PLEASE NOTE THAT THIS BOT DOESN'T HAVE ANY COMMANDS, ONLY A ? PREFIX. THE OWNER MADE THIS COMMAND TO HELP YOU ENJOY OUR LOVELY BOT WITHOUT COMPLICATIONS.***\n
+**Please note that this bot doesn't have any commands, only a ('?') prefix. The owner made this command to help you enjoy our lovely bot without complications.** 🤖\nSome users: "Then how can I use the commands? ❓\nSupport team: "You can use commands with **?**. For example, if I want to use the avatar command, I will type **?avatar** in any text channel. 💬
+
 **▶️ Basic Commands** \n\`\`avatar, support, userinfo\`\`\n
 **▶️ Fun Commands** \n\`\`ascii, joke, roll\`\`\n
 **▶️ Anime Commands** \n\`\`blush, cuddle, dance, slap, bonk, bully, hug, confused, kiss, pat, happy, smile, yes, highfive, wink, wave, thinking, sad, cry, stare, bored, scream, nervous, kill\`\`\n
