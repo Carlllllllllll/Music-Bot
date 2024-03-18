@@ -16,12 +16,6 @@ module.exports = {
           type: ApplicationCommandOptionType.String,
           required: true
         },
-           {
-          name: "public",
-          description: "Want to make it Public ? True 0r false",
-          type: ApplicationCommandOptionType.Boolean,
-          required: true
-        }
       ]
     },
     {
@@ -91,12 +85,6 @@ module.exports = {
     {
       name: "lists",
       description: "Browse all your Albums.",
-      type: ApplicationCommandOptionType.Subcommand,
-      options: []
-    },
-        {
-      name: "top",
-      description: "Most popular Albums.",
       type: ApplicationCommandOptionType.Subcommand,
       options: []
     }
