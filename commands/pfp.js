@@ -1,35 +1,17 @@
-const { EmbedBuilder } = require('discord.js');
+async function updateBanner() {
+  try {
+    const bannerUrl = "https://th.bing.com/th/id/R.fc4f45f89d3de367b4601a467cc9c166?rik=r8AiECSlQ%2ftWLw&riu=http%3a%2f%2fwww.galesaur.com%2fmusic%2f00-10.gif&ehk=3scZcznrIZpQeYBEZfWL69uR7A3SREZbsD7jOFswdSM%3d&risl=&pid=ImgRaw&r=0";
+    const resolvedBanner = await DataResolver.resolveImage(bannerUrl);
 
-module.exports = {
-  name: "pfp",
-  description: "Edit bot's profile picture",
-  permissions: "ADMINISTRATOR", 
-  options: [], 
-  run: async (client, interaction) => {
-    try {
-    
-      if (!interaction.member.permissions.has("ADMINISTRATOR")) {
-        return interaction.reply({ content: "You don't have permission to use this command.", ephemeral: true });
-      }
+    await client.rest.patch(Routes.user(), {
+      body: { banner: resolvedBanner },
+    });
 
-      
-      const newPfpUrl = "";
+    console.log('the banner was uploaded successfully!!');
+  } catch (error) {
+    console.error('error when uploading the banner.', error);
+  }
+}
 
-     
-      await client.user.setBanner(newPfpUrl);
 
-      // Create an embed to send a confirmation message
-      const embed = new EmbedBuilder()
-        .setColor("#00FF00")
-        .setTitle("Banner is now Updated")
-        .setDescription("The bot's banner has been successfully updated.")
-        .setImage(newPfpUrl);
-
-    
-      await interaction.reply({ embeds: [embed], ephemeral: true });
-    } catch (error) {
-      console.error("An error while adding the banner:", error);
-      await interaction.reply({ content: "An error occurred while updating the banner", ephemeral: true });
-    }
-  },
-};
+updateBanner();
