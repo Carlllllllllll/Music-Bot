@@ -1,8 +1,15 @@
-  // Import necessary modules from Discord.js
-const { Client, Routes, DataResolver } = require('discord.js');
+// Import necessary modules from Discord.js
+const { Client, Intents, DataResolver } = require('discord.js');
 
-// Create a new Discord client
-const client = new Client();
+// Define your bot's intents
+const intents = new Intents([
+  Intents.FLAGS.GUILDS, // You might need to adjust these based on your bot's functionality
+  Intents.FLAGS.GUILD_MESSAGES,
+  Intents.FLAGS.DIRECT_MESSAGES,
+]);
+
+// Create a new Discord client with intents
+const client = new Client({ intents });
 
 // Function to update the banner
 async function updateBanner() {
@@ -24,4 +31,3 @@ async function updateBanner() {
 client.login('TOKEN').then(() => {
   updateBanner();
 });
-
