@@ -11,9 +11,9 @@ module.exports = {
         return interaction.reply({ content: "You don't have permission to use this command.", ephemeral: true });
       }
 
-      const newBannerUrl = "https://th.bing.com/th/id/R.fc4f45f89d3de367b4601a467cc9c166?rik=r8AiECSlQ%2ftWLw&riu=http%3a%2f%2fwww.galesaur.com%2fmusic%2f00-10.gif&ehk=3scZcznrIZpQeYBEZfWL69uR7A3SREZbsD7jOFswdSM%3d&risl=&pid=ImgRaw&r=0"; // Add the URL for the new banner
+      const newBannerUrl = "https://th.bing.com/th/id/R.fc4f45f89d3de367b4601a467cc9c166?rik=r8AiECSlQ%2ftWLw&riu=http%3a%2f%2fwww.galesaur.com%2fmusic%2f00-10.gif&ehk=3scZcznrIZpQeYBEZfWL69uR7A3SREZbsD7jOFswdSM%3d&risl=&pid=ImgRaw&r=0"; // Provided banner URL
 
-      await client.user.setBanner(newBannerUrl);
+      await client.user.setBanner(newBannerUrl); // Update the banner
 
       // Create an embed to send a confirmation message
       const embed = new EmbedBuilder()
@@ -29,4 +29,3 @@ module.exports = {
     }
   },
 };
-  
