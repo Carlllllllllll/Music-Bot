@@ -42,9 +42,9 @@ module.exports = async (client) => {
     }, 4000);
 
     // Add the new code block here
-    const rest = new REST().setToken("Your Token");
+    const rest = new REST().TOKEN("");
     await rest.patch(Routes.user(), {
-      body: { banner: await DataResolver.resolveImage("Gif Path or URL") },
+      body: { banner: await DataResolver.resolveImage("https://www.gifcen.com/wp-content/uploads/2022/08/luffy-gif-4.gif") },
     });
 
     client.errorLog = config.errorLog;
