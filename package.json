@@ -10,7 +10,7 @@
     "@discordjs/rest": "^1.7.1",
     "@discordjs/voice": "^0.16.0",
     "@distube/deezer": "^1.0.0",
-    "@distube/soundcloud": "^1.3.3", // Updated to a specific version that works with distube@4.x
+    "@distube/soundcloud": "^1.3.3", 
     "@distube/spotify": "^1.5.1",
     "@distube/yt-dlp": "^1.1.3",
     "@distube/ytdl-core": "^4.13.3",
@@ -18,7 +18,7 @@
     "anime-actions": "^1.0.6",
     "discord-api-types": "^0.37.56",
     "discord.js": "^14.13.0",
-    "distube": "^4.0.6", // Updated to a version that works with @distube/soundcloud@1.3.3
+    "distube": "^4.0.6", 
     "express": "^4.18.2",
     "ffmpeg-static": "^5.2.0",
     "libsodium-wrappers": "^0.7.11",
