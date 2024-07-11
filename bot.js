@@ -23,7 +23,6 @@ client.player = new DisTube(client, {
   emitNewSongOnly: false, // Change this to false to emit all song events
   emitAddSongWhenCreatingQueue: false,
   emitAddListWhenCreatingQueue: false,
-  debug: true, // Enable debug mode
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
@@ -37,6 +36,15 @@ const player = client.player;
 // Add logging for player errors
 player.on('error', (channel, error) => {
   console.error(`Error in channel ${channel.id}: ${error.message}`);
+});
+
+// Add logging for other player events
+player.on('playSong', (queue, song) => {
+  console.log(`Playing ${song.name} in ${queue.voiceChannel.name}`);
+});
+
+player.on('addSong', (queue, song) => {
+  console.log(`Added ${song.name} to the queue in ${queue.voiceChannel.name}`);
 });
 
 fs.readdir("./events", (_err, files) => {
@@ -111,3 +119,4 @@ app.listen(port, () => {
   console.log(`🔗 Listening to GlaceYT: http://localhost:${port}`);
 });
 printWatermark();
+
