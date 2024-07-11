@@ -20,9 +20,10 @@ client.player = new DisTube(client, {
   leaveOnStop: config.opt.voiceConfig.leaveOnStop,
   leaveOnFinish: config.opt.voiceConfig.leaveOnFinish,
   leaveOnEmpty: config.opt.voiceConfig.leaveOnEmpty.status,
-  emitNewSongOnly: true,
+  emitNewSongOnly: false, // Change this to false to emit all song events
   emitAddSongWhenCreatingQueue: false,
   emitAddListWhenCreatingQueue: false,
+  debug: true, // Enable debug mode
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
@@ -32,6 +33,11 @@ client.player = new DisTube(client, {
 });
 process.env.YTDL_NO_UPDATE = true;
 const player = client.player;
+
+// Add logging for player errors
+player.on('error', (channel, error) => {
+  console.error(`Error in channel ${channel.id}: ${error.message}`);
+});
 
 fs.readdir("./events", (_err, files) => {
   files.forEach((file) => {
@@ -71,8 +77,6 @@ fs.readdir(config.commandsDir, (err, files) => {
   });
 });
 
-
-
 if (config.TOKEN || process.env.TOKEN) {
   client.login(config.TOKEN || process.env.TOKEN).catch((e) => {
     console.log('TOKEN ERROR❌❌');
@@ -82,7 +86,6 @@ if (config.TOKEN || process.env.TOKEN) {
     console.log('TOKEN ERROR❌❌');
   }, 2000);
 }
-
 
 if(config.mongodbURL || process.env.MONGO){
   const mongoose = require("mongoose")
@@ -97,7 +100,6 @@ if(config.mongodbURL || process.env.MONGO){
   console.log('\x1b[32m%s\x1b[0m', `|    🍔 Error MongoDB!`)
   }
 
-
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -106,7 +108,6 @@ app.get('/', (req, res) => {
   res.sendFile(imagePath);
 });
 app.listen(port, () => {
-  console.log(`🔗 Listening to RTX: http://localhost:${port}`);
-  console.log(`✨ Happy New Year Welcome To 2024`);
+  console.log(`🔗 Listening to GlaceYT: http://localhost:${port}`);
 });
 printWatermark();
