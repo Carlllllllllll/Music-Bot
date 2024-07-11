@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
@@ -9,19 +9,6 @@ const { DeezerPlugin } = require('@distube/deezer');
 const { YtDlpPlugin } = require('@distube/yt-dlp');
 const { printWatermark } = require('./util/pw');
 const config = require('./config.js');
-
-// Install required npm packages
-const packages = [
-  'distube@latest',
-  '@distube/spotify@latest',
-  '@distube/soundcloud@latest',
-  '@distube/deezer@latest',
-  '@distube/yt-dlp@latest',
-  'discord.js',
-  'mongoose',
-  'express',
-  'discord-api-types'
-];
 
 const installPackages = (packages) => {
   return new Promise((resolve, reject) => {
@@ -40,7 +27,10 @@ const installPackages = (packages) => {
 
 const startBot = async () => {
   try {
-    await installPackages(packages);
+    // Install packages in smaller groups
+    await installPackages(['distube@latest', '@distube/spotify@latest', '@distube/soundcloud@latest']);
+    await installPackages(['@distube/deezer@latest', '@distube/yt-dlp@latest', 'discord.js']);
+    await installPackages(['mongoose', 'express', 'discord-api-types']);
 
     const client = new Client({
       intents: Object.keys(GatewayIntentBits).map((a) => GatewayIntentBits[a]),
@@ -51,7 +41,7 @@ const startBot = async () => {
       leaveOnStop: config.opt.voiceConfig.leaveOnStop,
       leaveOnFinish: config.opt.voiceConfig.leaveOnFinish,
       leaveOnEmpty: config.opt.voiceConfig.leaveOnEmpty.status,
-      emitNewSongOnly: false, // Change this to false to emit all song events
+      emitNewSongOnly: false,
       emitAddSongWhenCreatingQueue: false,
       emitAddListWhenCreatingQueue: false,
       plugins: [
@@ -64,15 +54,12 @@ const startBot = async () => {
     process.env.YTDL_NO_UPDATE = true;
     const player = client.player;
 
-    // Set the maximum number of listeners to avoid warnings
     player.setMaxListeners(30);
 
-    // Add logging for player errors
     player.on('error', (channel, error) => {
       console.error(`Error in channel ${channel.id}: ${error.message}`);
     });
 
-    // Add logging for other player events
     player.on('playSong', (queue, song) => {
       console.log(`Playing ${song.name} in ${queue.voiceChannel.name}`);
     });
