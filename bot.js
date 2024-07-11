@@ -136,8 +136,8 @@ const startBot = async () => {
     const app = express();
     const port = 3000;
     app.get('/', (req, res) => {
-      const imagePath = path.join(__dirname, 'index.html');
-      res.sendFile(imagePath);
+      const indexPath = path.join(__dirname, 'index.html');
+      res.sendFile(indexPath);
     });
     app.listen(port, () => {
       console.log(`🔗 Listening to GlaceYT: http://localhost:${port}`);
