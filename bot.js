@@ -12,7 +12,7 @@ const config = require('./config.js');
 
 const installPackages = (packages) => {
   return new Promise((resolve, reject) => {
-    exec(`npm install ${packages.join(' ')}`, (error, stdout, stderr) => {
+    exec(`npm install ${packages.join(' ')} --force`, (error, stdout, stderr) => {
       if (error) {
         reject(`Error installing npm packages: ${error.message}`);
       } else if (stderr) {
@@ -28,7 +28,7 @@ const installPackages = (packages) => {
 const startBot = async () => {
   try {
     // Install packages in smaller groups
-    await installPackages(['distube@latest', '@distube/spotify@latest', '@distube/soundcloud@latest']);
+    await installPackages(['distube@5.0.2', '@distube/spotify@latest', '@distube/soundcloud@latest']);
     await installPackages(['@distube/deezer@latest', '@distube/yt-dlp@latest', 'discord.js']);
     await installPackages(['mongoose', 'express', 'discord-api-types']);
 
@@ -51,6 +51,7 @@ const startBot = async () => {
         new DeezerPlugin(),
       ],
     });
+
     process.env.YTDL_NO_UPDATE = true;
     const player = client.player;
 
@@ -141,6 +142,7 @@ const startBot = async () => {
     app.listen(port, () => {
       console.log(`🔗 Listening to GlaceYT: http://localhost:${port}`);
     });
+
     printWatermark();
 
   } catch (error) {
