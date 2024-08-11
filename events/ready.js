@@ -1,4 +1,4 @@
-const { REST, Routes, ActivityType, DataResolver } = require('discord.js');
+const { REST, Routes, ActivityType } = require('discord.js'); // Removed DataResolver
 const fs = require('fs');
 const config = require('../config'); // Ensure this config file contains your necessary configurations
 const status = "AUTOMATIC";
@@ -55,18 +55,15 @@ module.exports = async (client) => {
     type: ActivityType.Watching,
   });
 
-  // Update the bot's banner
+  // Commented out as it's not supported
+  
   try {
     const bannerUrl = "https://media.discordapp.net/attachments/1208810080426795061/1271602484519112724/Gido-Banner-Carl.gif?ex=66b9e9d9&is=66b89859&hm=36cef24fa243affd09339b811aff865f0169dd29cd64b453724963d13e4941e8&=";
-
-    // Resolve the banner URL to an image
     const resolvedBanner = await DataResolver.resolveImage(bannerUrl);
-
-    // Discord API does not support directly setting the banner via the bot user; however, you can upload it manually in the Discord Developer Portal. The following would typically work for a user (not a bot):
     await client.user.setBanner(resolvedBanner);
-
     console.log('The banner was uploaded successfully!!');
   } catch (error) {
     console.error('Error when uploading the banner:', error);
   }
+  
 };
