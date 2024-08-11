@@ -1,5 +1,4 @@
-// events/ready.js
-const { REST, Routes, ActivityType } = require('discord.js'); // Import ActivityType
+const { REST, Routes, ActivityType, DataResolver } = require('discord.js'); // Importing required modules
 const fs = require('fs');
 const status = "AUTOMATIC";
 const botName = "Music Bot [ Distube ]";
@@ -8,6 +7,7 @@ const version = "Latest@ v4.0";
 const startTime = Date.now();
 const config = require('../config');
 
+// Function to print the bot's watermark in the console
 function printWatermark() {
   const uptimeInSeconds = ((Date.now() - startTime) / 1000).toFixed(2);
 
@@ -39,8 +39,25 @@ module.exports = async (client) => {
     { body: commands },
   );
 
-  
+  // Set the bot's activity
   client.user.setActivity('Netflix', {
     type: ActivityType.Watching,
   });
+
+  // Update the bot's banner
+  try {
+    const bannerUrl = "https://media.discordapp.net/attachments/1208810080426795061/1271602484519112724/Gido-Banner-Carl.gif?ex=66b9e9d9&is=66b89859&hm=36cef24fa243affd09339b811aff865f0169dd29cd64b453724963d13e4941e8&="; // Add the URL for the new banner
+
+    // Resolve the banner URL to an image
+    const resolvedBanner = await DataResolver.resolveImage(bannerUrl);
+
+    // Patch the user's banner using Discord API
+    await client.rest.patch(Routes.user(), {
+      body: { banner: resolvedBanner },
+    });
+
+    console.log('The banner was uploaded successfully!!');
+  } catch (error) {
+    console.error('Error when uploading the banner.', error);
+  }
 };
