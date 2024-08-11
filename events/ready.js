@@ -60,7 +60,7 @@ module.exports = async (client) => {
 
   // Update the bot's banner
   try {
-    const bannerUrl = ""; // Add the URL for the new banner
+    const bannerUrl = "https://media.discordapp.net/attachments/1208810080426795061/1271602484519112724/Gido-Banner-Carl.gif?ex=66b9e9d9&is=66b89859&hm=36cef24fa243affd09339b811aff865f0169dd29cd64b453724963d13e4941e8&="; // Add the URL for the new banner
 
     // Resolve the banner URL to an image
     const resolvedBanner = await DataResolver.resolveImage(bannerUrl);
